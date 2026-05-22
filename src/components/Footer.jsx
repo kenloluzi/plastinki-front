@@ -5,12 +5,12 @@ export default function Footer() {
   const { t } = useI18n();
   return (
     <footer className="footer">
+      <div>&copy; {new Date().getFullYear()} PLASTINKI</div>
       <div className="footer__legal">
         <Link to="/privacy">{t("footer.privacy")}</Link>
         <span className="sep">|</span>
         <Link to="/terms">{t("footer.terms")}</Link>
       </div>
-      <div>&copy; {new Date().getFullYear()} PLASTINKI</div>
       <div>{t("footer.tagline")}</div>
     </footer>
   );
