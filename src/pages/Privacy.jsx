@@ -1,7 +1,11 @@
 import { useI18n } from "../i18n/I18nContext.jsx";
+import { useEffect } from "react";
 
 export default function Privacy() {
   const { t } = useI18n();
+  useEffect(() => {
+     window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="legal-page">
