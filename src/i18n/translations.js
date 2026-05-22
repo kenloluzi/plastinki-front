@@ -13,6 +13,9 @@ export const translations = {
     },
     footer: {
       tagline: "Виниловые пластинки. Доставка по всему миру.",
+      privacy: "Политика конфиденциальности",
+      terms: "Пользовательское соглашение",
+
     },
     home: {
       title: "ВИНИЛОВЫЕ ПЛАСТИНКИ",
@@ -173,6 +176,8 @@ export const translations = {
     },
     footer: {
       tagline: "Vinyl records, shipped worldwide.",
+      privacy: "Privacy Policy",
+      terms: "Terms of Service",
     },
     home: {
       title: "VINYL RECORDS",

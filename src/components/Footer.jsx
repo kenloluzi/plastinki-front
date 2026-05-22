@@ -6,9 +6,9 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__legal">
-        <Link to="/privacy">Политика конфиденциальности</Link>
+        <Link to="/privacy">{t("footer.privacy")}</Link>
         <span className="sep">|</span>
-        <Link to="/terms">Пользовательское соглашение</Link>
+        <Link to="/terms">{t("footer.terms")}</Link>
       </div>
       <div>&copy; {new Date().getFullYear()} PLASTINKI</div>
       <div>{t("footer.tagline")}</div>
