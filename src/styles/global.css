@@ -176,10 +176,11 @@ label {
 
 /* Footer */
 .footer {
-  border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 24px 32px;
+  border-top: 1px solid var(--border);
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1074,7 +1075,6 @@ label {
 .footer__legal {
   display: flex;
   gap: 12px;
-  font-size: 11px;
 }
 .footer__legal .sep {
   color: var(--muted);
@@ -1083,6 +1083,9 @@ label {
   .footer {
     flex-direction: column;
     text-align: center;
+    gap: 10px;
+    padding: 16px;
+    font-size: 10px;
   }
   .footer__legal {
     justify-content: center;
