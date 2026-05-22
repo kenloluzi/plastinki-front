@@ -19,6 +19,14 @@ export const translations = {
       subtitle: "Весенняя коллекция — 2026",
       cta: "СМОТРЕТЬ ВСЁ",
     },
+    legal: {
+      privacy: {
+        title: "Политика конфиденциальности",
+      },
+      terms: {
+        title: "Пользовательское соглашение",
+      },
+    },
     catalog: {
       title: "Каталог",
       count: "Найдено: {n}",
@@ -199,6 +207,14 @@ export const translations = {
       outOfStock: "OUT OF STOCK",
       conditionNew: "New",
       conditionUsed: "Used",
+    },
+    legal: {
+      privacy: {
+        title: "Privacy Policy",
+      },
+      terms: {
+        title: "Terms of Service",
+      },
     },
     cart: {
       title: "Cart",

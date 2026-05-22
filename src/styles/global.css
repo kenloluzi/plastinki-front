@@ -1038,3 +1038,53 @@ label {
   background: #000;
   color: #fff;
 }
+.legal-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.legal-page h1 {
+  font-size: 28px;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.legal-page h2 {
+  font-size: 20px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.legal-page p, .legal-page ul {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.legal-page ul {
+  padding-left: 24px;
+}
+
+.legal-page li {
+  margin-bottom: 6px;
+}
+.footer__legal {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+}
+.footer__legal .sep {
+  color: var(--muted);
+}
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer__legal {
+    justify-content: center;
+  }
+}
