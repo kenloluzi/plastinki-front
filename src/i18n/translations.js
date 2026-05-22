@@ -10,13 +10,7 @@ export const translations = {
     },
     auth: {
   confirmLogout: "Вы точно хотите выйти?",
-},
-common: {
-  yes: "Да",
-  no: "Нет",
-  loading: "Загрузка…",
-  error: "Ошибка",
-},
+    },
     footer: {
       tagline: "Виниловые пластинки. Доставка по всему миру.",
     },
@@ -152,6 +146,8 @@ common: {
     common: {
       loading: "Загрузка…",
       error: "Ошибка",
+      yes: "Да",
+      no: "Нет",
     },
   },
 
@@ -165,14 +161,8 @@ common: {
       cart: "Cart",
     },
     auth: {
-  confirmLogout: "Are you sure you want to logout?",
-},
-common: {
-  yes: "Yes",
-  no: "No",
-  loading: "Loading…",
-  error: "Error",
-},
+    confirmLogout: "Are you sure you want to logout?",
+    },
     footer: {
       tagline: "Vinyl records, shipped worldwide.",
     },
@@ -308,6 +298,8 @@ common: {
     common: {
       loading: "Loading…",
       error: "Error",
+      yes: "Yes",
+      no: "No",
     },
   },
 };
