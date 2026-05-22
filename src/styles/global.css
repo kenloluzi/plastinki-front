@@ -13,7 +13,9 @@
   --max-w: 1400px;
 }
 
-html,
+html {
+  overflow-y: scroll;
+}
 body,
 #root {
   margin: 0;
