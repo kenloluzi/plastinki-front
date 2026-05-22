@@ -8,6 +8,15 @@ export const translations = {
       login: "Вход",
       cart: "Корзина",
     },
+    auth: {
+  confirmLogout: "Вы точно хотите выйти?",
+},
+common: {
+  yes: "Да",
+  no: "Нет",
+  loading: "Загрузка…",
+  error: "Ошибка",
+},
     footer: {
       tagline: "Виниловые пластинки. Доставка по всему миру.",
     },
@@ -155,6 +164,15 @@ export const translations = {
       login: "Login",
       cart: "Cart",
     },
+    auth: {
+  confirmLogout: "Are you sure you want to logout?",
+},
+common: {
+  yes: "Yes",
+  no: "No",
+  loading: "Loading…",
+  error: "Error",
+},
     footer: {
       tagline: "Vinyl records, shipped worldwide.",
     },
