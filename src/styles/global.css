@@ -1117,32 +1117,3 @@ textarea {
 .btn, .hero__cta {
   border-radius: 30px;
 }
-/* Стеклянная кнопка "СМОТРЕТЬ ВСЁ" — улучшенная видимость границ */
-/* Ультра-стеклянная кнопка "СМОТРЕТЬ ВСЁ" – максимум заметности */
-.hero__cta {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(24px) saturate(200%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
-  border: 2px solid rgba(255, 255, 255, 1) !important;       /* яркая белая рамка */
-  border-radius: 60px !important;
-  color: #000 !important;
-  font-weight: 800 !important;                               /* очень жирный текст */
-  letter-spacing: 0.2em !important;                         /* широкий интервал */
-  text-transform: uppercase !important;
-  padding: 14px 36px !important;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15),               /* глубокая тень */
-              0 0 0 1px rgba(255, 255, 255, 0.6) inset,     /* внутренняя подсветка */
-              0 0 15px rgba(255, 255, 255, 0.5) !important; /* внешнее свечение */
-  transition: all 0.3s ease;
-}
-
-/* Эффект при наведении – ещё ярче и крупнее */
-.hero__cta:hover {
-  background: rgba(255, 255, 255, 0.4) !important;
-  backdrop-filter: blur(30px) saturate(220%) !important;
-  border-color: rgba(255, 255, 255, 1) !important;
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2),
-              0 0 0 2px rgba(255, 255, 255, 0.8) inset,
-              0 0 20px rgba(255, 255, 255, 0.8) !important;
-}
