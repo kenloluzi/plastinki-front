@@ -12,7 +12,6 @@ export const translations = {
   confirmLogout: "Вы точно хотите выйти?",
     },
     footer: {
-      tagline: "Виниловые пластинки. Доставка по всему миру.",
       privacy: "Политика конфиденциальности",
       terms: "Пользовательское соглашение",
 
@@ -179,7 +178,6 @@ export const translations = {
     confirmLogout: "Are you sure you want to logout?",
     },
     footer: {
-      tagline: "Vinyl records, shipped worldwide.",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
     },

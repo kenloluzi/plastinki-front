@@ -11,7 +11,6 @@ export default function Footer() {
         <span className="sep">|</span>
         <Link to="/terms">{t("footer.terms")}</Link>
       </div>
-      <div>{t("footer.tagline")}</div>
     </footer>
   );
 }
