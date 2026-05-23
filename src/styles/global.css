@@ -1095,3 +1095,27 @@ label {
 .delete-order:hover {
   text-decoration: underline;
 }
+
+/* Добавление скруглений для мягкого дизайна */
+.btn,
+.filters__reset,
+.admin__tabs button,
+.hero__cta,
+.record-card,
+.order-card,
+.admin__form,
+.modal-content,
+input,
+select,
+textarea {
+  border-radius: 12px;
+}
+
+.record-card__image {
+  border-radius: 12px 12px 0 0;
+}
+
+/* Дополнительно для кнопок-таблеток */
+.btn, .hero__cta {
+  border-radius: 30px;
+}
