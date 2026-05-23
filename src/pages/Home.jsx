@@ -9,7 +9,7 @@ export default function Home() {
   const { t } = useI18n();
 
   useEffect(() => {
-    api.get("/records?sort=newest").then((res) => setRecords(res.items.slice(0, 8))).catch(() => {});
+    api.get("/records?sort=newest").then((res) => setRecords(res.items.slice(0, 15))).catch(() => {});
   }, []);
 
   return (
