@@ -1111,9 +1111,7 @@ textarea {
   border-radius: 12px;
 }
 
-.record-card__image {
-  border-radius: 12px 12px 0 0;
-}
+
 
 /* Дополнительно для кнопок-таблеток */
 .btn, .hero__cta {
