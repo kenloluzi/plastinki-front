@@ -42,6 +42,11 @@ export default function RecordDetail() {
           <span>{record.condition === "new" ? t("record.conditionNew") : t("record.conditionUsed")}</span>
         </div>
         <div className="record-detail__price">${record.price.toFixed(2)}</div>
+        <div className="record-detail__stock">
+          {record.stock > 0
+            ? t("record.inStock", { stock: record.stock })
+            : t("record.outOfStock")}
+        </div>
         {record.description && <p className="record-detail__desc">{record.description}</p>}
         <button
           className="btn btn--block"

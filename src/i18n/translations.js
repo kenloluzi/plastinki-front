@@ -58,6 +58,7 @@ export const translations = {
       outOfStock: "НЕТ В НАЛИЧИИ",
       conditionNew: "Новая",
       conditionUsed: "Б/у",
+      inStock: "В наличии: {stock} шт.",
     },
     cart: {
       title: "Корзина",
@@ -212,6 +213,7 @@ export const translations = {
       outOfStock: "OUT OF STOCK",
       conditionNew: "New",
       conditionUsed: "Used",
+      inStock: "In stock: {stock} pcs.",
     },
     legal: {
       privacy: {
