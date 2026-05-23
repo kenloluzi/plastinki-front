@@ -1125,7 +1125,7 @@ textarea {
   border: 1.5px solid rgba(255, 255, 255, 0.8) !important;  /* яркая, почти белая граница */
   border-radius: 40px !important;                           /* скругление для стиля */
   color: #111 !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.3) inset; /* двойная тень для объёма */
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.25s ease;
 }
 
