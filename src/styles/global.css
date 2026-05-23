@@ -205,13 +205,7 @@ label {
   margin: 0 0 8px;
 }
 
-.hero__subtitle {
-  font-size: 11px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 20px;
-}
+
 
 .hero__cta {
   display: inline-block;
@@ -819,11 +813,7 @@ label {
     font-size: clamp(28px, 9vw, 44px);
     margin-bottom: 6px;
   }
-  .hero__subtitle {
-    margin-bottom: 14px;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-  }
+  
   .hero__cta {
     padding: 10px 22px;
     font-size: 11px;

@@ -16,7 +16,6 @@ export default function Home() {
     <div className="home">
       <section className="hero">
         <h1 className="hero__title">{t("home.title")}</h1>
-        <p className="hero__subtitle">{t("home.subtitle")}</p>
         <Link to="/catalog" className="hero__cta">{t("home.cta")}</Link>
       </section>
 

@@ -19,7 +19,6 @@ export const translations = {
     },
     home: {
       title: "ВИНИЛОВЫЕ ПЛАСТИНКИ",
-      subtitle: "Весенняя коллекция — 2026",
       cta: "СМОТРЕТЬ ВСЁ",
     },
     legal: {
@@ -186,7 +185,6 @@ export const translations = {
     },
     home: {
       title: "VINYL RECORDS",
-      subtitle: "Spring Collection — 2026",
       cta: "SHOP ALL",
     },
     catalog: {
