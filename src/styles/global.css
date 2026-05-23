@@ -1098,3 +1098,10 @@ label {
     justify-content: center;
   }
 }
+.delete-order {
+  color: #c00;
+  margin-left: 12px;
+}
+.delete-order:hover {
+  text-decoration: underline;
+}

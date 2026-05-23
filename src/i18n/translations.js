@@ -109,6 +109,7 @@ export const translations = {
       noOrders: "Заказов пока нет.",
       order: "Заказ №{id}",
       total: "Итого",
+      confirmDeleteOrder: "Вы точно хотите удалить этот заказ?",
     },
     admin: {
       title: "Админ-панель",
@@ -133,7 +134,9 @@ export const translations = {
       conditionUsed: "Б/у",
       save: "Сохранить",
       add: "Добавить",
+      confirmDeleteOrder: "Удалить этот заказ?",
       cancel: "Отмена",
+      confirmDeleteOrder: "Delete this order?",
       edit: "Изменить",
       delete: "Удалить",
       confirmDelete: "Удалить пластинку?",
@@ -160,6 +163,7 @@ export const translations = {
       error: "Ошибка",
       yes: "Да",
       no: "Нет",
+      delete: "Удалить",
     },
   },
 
@@ -272,6 +276,7 @@ export const translations = {
       noOrders: "No orders yet.",
       order: "Order #{id}",
       total: "Total",
+      confirmDeleteOrder: "Are you sure you want to delete this order?",
     },
     admin: {
       title: "Admin Panel",
@@ -323,6 +328,7 @@ export const translations = {
       error: "Error",
       yes: "Yes",
       no: "No",
+      delete: "Delete",
     },
   },
 };

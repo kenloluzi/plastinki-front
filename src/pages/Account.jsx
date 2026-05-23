@@ -13,11 +13,29 @@ export default function Account() {
   const orderPlaced = location.state?.orderPlaced;
 
   useEffect(() => {
-    api.get("/orders")
-      .then((res) => setOrders(res.items))
-      .catch(() => setOrders([]))
-      .finally(() => setLoading(false));
+    loadOrders();
   }, []);
+
+  async function loadOrders() {
+    try {
+      const res = await api.get("/orders");
+      setOrders(res.items);
+    } catch {
+      setOrders([]);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function deleteOrder(orderId) {
+    if (!confirm(t("account.confirmDeleteOrder"))) return;
+    try {
+      await api.del(`/orders/${orderId}`);
+      setOrders(orders.filter(o => o.id !== orderId));
+    } catch (err) {
+      alert(err.message);
+    }
+  }
 
   return (
     <div className="account">
@@ -44,6 +62,9 @@ export default function Account() {
                 <span>{t("account.order", { id: o.id })}</span>
                 <span>{new Date(o.created_at).toLocaleString(locale)}</span>
                 <span className="order-card__status">{t(`admin.orderStatus.${o.status}`)}</span>
+                <button className="link-button delete-order" onClick={() => deleteOrder(o.id)}>
+                  {t("common.delete")}
+                </button>
               </div>
               <ul className="order-card__items">
                 {o.items.map((i) => (
