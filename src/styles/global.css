@@ -1117,3 +1117,21 @@ textarea {
 .btn, .hero__cta {
   border-radius: 30px;
 }
+/* Ультра-стеклянная кнопка (liquid glass extreme) */
+.hero__cta {
+  background: rgba(255, 255, 255, 0.08) !important;      /* почти прозрачный фон */
+  backdrop-filter: blur(20px) saturate(200%) !important; /* сильное размытие фона */
+  -webkit-backdrop-filter: blur(20px) saturate(200%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important; /* едва заметная светлая рамка */
+  color: #000 !important;                                /* или белый, если тёмный фон */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);            /* минимальная тень */
+  transition: all 0.3s ease;
+}
+
+/* При наведении можно немного усилить для интерактива */
+.hero__cta:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(24px) saturate(220%) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  transform: scale(1.02);
+}
