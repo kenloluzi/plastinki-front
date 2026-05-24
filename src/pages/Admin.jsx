@@ -24,21 +24,14 @@ export default function Admin() {
   const [error, setError] = useState(null);
   const [imagePreview, setImagePreview] = useState("");
 
-  useEffect(() => {
-    loadRecords();
-    loadOrders();
-  }, []);
+  useEffect(() => { loadRecords(); loadOrders(); }, []);
 
   function loadRecords() {
-    api.get("/admin/records")
-      .then((res) => setRecords(res.items))
-      .catch(() => {});
+    api.get("/admin/records").then((res) => setRecords(res.items)).catch(() => {});
   }
 
   function loadOrders() {
-    api.get("/admin/orders")
-      .then((res) => setOrders(res.items))
-      .catch(() => {});
+    api.get("/admin/orders").then((res) => setOrders(res.items)).catch(() => {});
   }
 
   function startEdit(r) {
@@ -107,16 +100,10 @@ export default function Admin() {
     <div className="admin">
       <h1>{t("admin.title")}</h1>
       <div className="admin__tabs">
-        <button
-          className={tab === "records" ? "active" : ""}
-          onClick={() => setTab("records")}
-        >
+        <button className={tab === "records" ? "active" : ""} onClick={() => setTab("records")}>
           {t("admin.tabs.records")}
         </button>
-        <button
-          className={tab === "orders" ? "active" : ""}
-          onClick={() => setTab("orders")}
-        >
+        <button className={tab === "orders" ? "active" : ""} onClick={() => setTab("orders")}>
           {t("admin.tabs.orders")}
         </button>
       </div>
@@ -124,11 +111,7 @@ export default function Admin() {
       {tab === "records" && (
         <>
           <form className="admin__form" onSubmit={save}>
-            <h2>
-              {editing
-                ? t("admin.formEdit", { id: editing })
-                : t("admin.formAdd")}
-            </h2>
+            <h2>{editing ? t("admin.formEdit", { id: editing }) : t("admin.formAdd")}</h2>
             <div className="admin__row">
               <div style={{ flex: 1 }}>
                 <input
@@ -176,9 +159,7 @@ export default function Admin() {
               />
               <select
                 value={form.condition}
-                onChange={(e) =>
-                  setForm({ ...form, condition: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, condition: e.target.value })}
               >
                 <option value="new">{t("admin.conditionNew")}</option>
                 <option value="used">{t("admin.conditionUsed")}</option>
@@ -203,24 +184,12 @@ export default function Admin() {
             <textarea
               placeholder={t("admin.fields.description")}
               value={form.description}
-              onChange={(e) =>
-                setForm({ ...form, description: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, description: e.target.value })}
             />
             {error && <div className="form-error">{error}</div>}
             <div className="admin__actions">
-              <button className="btn" type="submit">
-                {editing ? t("admin.save") : t("admin.add")}
-              </button>
-              {editing && (
-                <button
-                  type="button"
-                  className="link-button"
-                  onClick={cancelEdit}
-                >
-                  {t("admin.cancel")}
-                </button>
-              )}
+              <button className="btn" type="submit">{editing ? t("admin.save") : t("admin.add")}</button>
+              {editing && <button type="button" className="link-button" onClick={cancelEdit}>{t("admin.cancel")}</button>}
             </div>
           </form>
 
@@ -248,22 +217,10 @@ export default function Admin() {
                       <img
                         src={r.image_url}
                         alt={r.title}
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          objectFit: "cover",
-                          borderRadius: "4px",
-                        }}
+                        style={{ width: "50px", height: "50px", objectFit: "cover", borderRadius: "4px" }}
                       />
                     ) : (
-                      <div
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          background: "#eee",
-                          borderRadius: "4px",
-                        }}
-                      />
+                      <div style={{ width: "50px", height: "50px", background: "#eee", borderRadius: "4px" }} />
                     )}
                   </td>
                   <td>{r.artist}</td>
@@ -274,12 +231,8 @@ export default function Admin() {
                   <td>${r.price.toFixed(2)}</td>
                   <td>{r.stock}</td>
                   <td>
-                    <button className="link-button" onClick={() => startEdit(r)}>
-                      {t("admin.edit")}
-                    </button>
-                    <button className="link-button" onClick={() => remove(r.id)}>
-                      {t("admin.delete")}
-                    </button>
+                    <button className="link-button" onClick={() => startEdit(r)}>{t("admin.edit")}</button>
+                    <button className="link-button delete-order" onClick={() => remove(r.id)}>{t("admin.delete")}</button>
                   </td>
                 </tr>
               ))}
@@ -295,10 +248,7 @@ export default function Admin() {
               <div className="order-card__head">
                 <span>{t("account.order", { id: o.id })}</span>
                 <span>{new Date(o.created_at).toLocaleString(locale)}</span>
-                <select
-                  value={o.status}
-                  onChange={(e) => setStatus(o.id, e.target.value)}
-                >
+                <select value={o.status} onChange={(e) => setStatus(o.id, e.target.value)}>
                   <option value="pending">{t("admin.orderStatus.pending")}</option>
                   <option value="paid">{t("admin.orderStatus.paid")}</option>
                   <option value="shipped">{t("admin.orderStatus.shipped")}</option>
@@ -314,7 +264,7 @@ export default function Admin() {
               </div>
               <ul className="order-card__items">
                 {o.items.map((i) => (
-                  <li key={i.id} style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "8px" }}>
+                  <li key={i.id} style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
                     {i.image_url ? (
                       <img
                         src={i.image_url}
@@ -331,9 +281,7 @@ export default function Admin() {
                   </li>
                 ))}
               </ul>
-              <div className="order-card__total">
-                {t("admin.orderTotal")}: ${o.total.toFixed(2)}
-              </div>
+              <div className="order-card__total">{t("admin.orderTotal")}: ${o.total.toFixed(2)}</div>
             </li>
           ))}
         </ul>

@@ -37,18 +37,18 @@ export default function Cart() {
                 value={i.quantity}
                 onChange={(e) => setQuantity(i.record_id, parseInt(e.target.value, 10) || 1)}
               />
-              <button className="link-button" onClick={() => remove(i.record_id)}>{t("cart.remove")}</button>
+              <button className="link-button delete-order" onClick={() => remove(i.record_id)}>
+                {t("cart.remove")}
+              </button>
             </div>
             <div className="cart-item__line">${(Number(i.price) * i.quantity).toFixed(2)}</div>
           </li>
         ))}
       </ul>
-
       <div className="cart-total">
         <span>{t("cart.total")}</span>
         <span>${total.toFixed(2)}</span>
       </div>
-
       <Link to="/checkout" className="btn btn--block">{t("cart.checkout")}</Link>
     </div>
   );

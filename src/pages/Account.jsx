@@ -68,10 +68,7 @@ export default function Account() {
               </div>
               <ul className="order-card__items">
                 {o.items.map((i) => (
-                  <li
-                    key={i.id}
-                    style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}
-                  >
+                  <li key={i.id} style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
                     {i.image_url ? (
                       <img
                         src={i.image_url}
@@ -82,8 +79,7 @@ export default function Account() {
                       <div style={{ width: "40px", height: "40px", background: "#eee", borderRadius: "4px" }} />
                     )}
                     <div>
-                      <strong>{i.artist}</strong> — {i.title}
-                      <br />
+                      <strong>{i.artist}</strong> — {i.title}<br />
                       {i.quantity} × ${Number(i.price).toFixed(2)} = <strong>${(i.price * i.quantity).toFixed(2)}</strong>
                     </div>
                   </li>

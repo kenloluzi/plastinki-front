@@ -1,4 +1,3 @@
-// frontend/src/components/Header.jsx
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useCart } from "../context/CartContext.jsx";
@@ -12,18 +11,9 @@ export default function Header() {
   const { t } = useI18n();
   const [showConfirm, setShowConfirm] = useState(false);
 
-  const handleLogoutClick = () => {
-    setShowConfirm(true);
-  };
-
-  const confirmLogout = () => {
-    logout();
-    setShowConfirm(false);
-  };
-
-  const cancelLogout = () => {
-    setShowConfirm(false);
-  };
+  const handleLogoutClick = () => setShowConfirm(true);
+  const confirmLogout = () => { logout(); setShowConfirm(false); };
+  const cancelLogout = () => setShowConfirm(false);
 
   return (
     <>
@@ -35,7 +25,7 @@ export default function Header() {
           {user ? (
             <>
               <NavLink to="/account">{t("nav.account")}</NavLink>
-              <button className="link-button" onClick={handleLogoutClick}>
+              <button className="link-button delete-order" onClick={handleLogoutClick}>
                 {t("nav.logout")}
               </button>
             </>
@@ -49,16 +39,15 @@ export default function Header() {
         </nav>
       </header>
 
-      {/* Модальное окно подтверждения */}
       {showConfirm && (
         <div className="modal-overlay" onClick={cancelLogout}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <p>{t("auth.confirmLogout")}</p>
             <div className="modal-buttons">
-              <button className="btn btn--small" onClick={confirmLogout}>
+              <button className="btn btn-danger" onClick={confirmLogout}>
                 {t("common.yes")}
               </button>
-              <button className="btn btn--small btn--secondary" onClick={cancelLogout}>
+              <button className="btn btn-secondary" onClick={cancelLogout}>
                 {t("common.no")}
               </button>
             </div>
