@@ -77,6 +77,16 @@ export default function Admin() {
     loadOrders();
   }
 
+  async function deleteOrder(orderId) {
+    if (!confirm(t("admin.confirmDeleteOrder"))) return;
+    try {
+      await api.del(`/orders/${orderId}`);
+      setOrders((prev) => prev.filter((o) => o.id !== orderId));
+    } catch (e) {
+      alert(e.message);
+    }
+  }
+
   return (
     <div className="admin">
       <h1>{t("admin.title")}</h1>
@@ -176,6 +186,9 @@ export default function Admin() {
                   <option value="shipped">{t("admin.orderStatus.shipped")}</option>
                   <option value="cancelled">{t("admin.orderStatus.cancelled")}</option>
                 </select>
+                <button className="link-button delete-order" onClick={() => deleteOrder(o.id)}>
+                  {t("common.delete")}
+                </button>
               </div>
               <div className="muted small">
                 {o.full_name} · {o.address}, {o.city} {o.zip_code}
