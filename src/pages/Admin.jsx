@@ -227,8 +227,8 @@ export default function Admin() {
           <table className="admin__table">
             <thead>
               <tr>
-                <th>{t("admin.table.image")}</th>
                 <th>{t("admin.table.id")}</th>
+                <th>{t("admin.table.image")}</th>
                 <th>{t("admin.table.artist")}</th>
                 <th>{t("admin.table.title")}</th>
                 <th>{t("admin.table.year")}</th>
