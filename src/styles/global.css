@@ -815,3 +815,31 @@ button.delete-order:hover {
   box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5);
   text-decoration: none;
 }
+
+/* Единый стиль для всех красных кнопок удаления (и в пластинках, и в заказах) */
+.delete-order,
+.btn-danger,
+.admin__table td button.delete-order,
+.order-card__head button.delete-order {
+  background: rgba(220, 53, 69, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: #fff !important;
+  border-radius: 30px !important;
+  padding: 6px 16px !important;
+  font-size: 12px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3) !important;
+}
+
+.delete-order:hover,
+.btn-danger:hover,
+.admin__table td button.delete-order:hover,
+.order-card__head button.delete-order:hover {
+  background: rgba(220, 53, 69, 1) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5) !important;
+}
