@@ -755,3 +755,18 @@ button.delete-order:hover,
   background: rgba(220, 53, 69, 0.85) !important;
   color: #fff !important;
 }
+
+
+/* Убираем подчёркивание при наведении на любые кнопки и ссылки-кнопки */
+button:hover,
+.btn:hover,
+.link-button:hover,
+.delete-order:hover,
+.filters__reset:hover,
+.admin__tabs button:hover,
+.hero__cta:hover,
+.cart-link:hover,
+.nav a:hover,
+.nav button:hover {
+  text-decoration: none !important;
+}
