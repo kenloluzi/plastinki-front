@@ -1143,3 +1143,54 @@ button:hover,
 .btn-danger:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45) !important;
 }
+/* ===== КОМПАКТНЫЕ КНОПКИ ДЛЯ ВСЕГО САЙТА ===== */
+/* Уменьшаем отступы и шрифт для всех кнопок */
+button,
+.btn,
+.filters__reset,
+.admin__tabs button,
+.hero__cta,
+.link-button,
+.cart-item__controls button,
+.order-card__head button,
+.admin__table td button,
+.nav a,
+.nav button,
+.cart-link,
+.modal-buttons button,
+a.btn,
+.auth-form button,
+.checkout__form button,
+button[type="submit"],
+button[type="button"] {
+  padding: 4px 12px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+  border-radius: 30px !important;
+}
+
+/* Особо компактные кнопки в шапке и мелких элементах */
+.nav a,
+.nav button,
+.cart-link {
+  padding: 4px 10px !important;
+  font-size: 10px !important;
+}
+
+/* Кнопки в админской таблице (Edit / Delete) */
+.admin__table td button {
+  padding: 3px 8px !important;
+  font-size: 10px !important;
+  margin: 0 3px !important;
+}
+
+/* Кнопки в модалке */
+.modal-buttons button {
+  padding: 5px 14px !important;
+  font-size: 11px !important;
+}
+
+/* Кнопка корзины (ссылка) если отличается */
+.cart-link {
+  padding: 4px 10px !important;
+}
