@@ -770,3 +770,22 @@ button:hover,
 .nav button:hover {
   text-decoration: none !important;
 }
+
+
+/* Красные кнопки удаления – эффект при наведении */
+.delete-order,
+.btn-danger {
+  background: rgba(220, 53, 69, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+  transition: all 0.2s ease;
+}
+
+.delete-order:hover,
+.btn-danger:hover {
+  background: rgba(220, 53, 69, 1) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5);
+  cursor: pointer;
+}
