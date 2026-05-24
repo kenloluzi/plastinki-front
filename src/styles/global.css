@@ -968,3 +968,12 @@ button.link-button {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(220,53,69,0.5);
 }
+/* Анимация приближения карточки при клике */
+.record-card {
+  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.record-card--animate {
+  transform: scale(1.05) translateY(-4px);
+  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
