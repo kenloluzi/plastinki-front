@@ -1121,6 +1121,7 @@ button,
 .cart-link,
 .modal-buttons button {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2) !important;
+  padding: 6px 14px !important;
 }
 
 /* При наведении тень может усиливаться */
