@@ -977,3 +977,14 @@ button.link-button {
   transform: scale(1.05) translateY(-4px);
   transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
+.record-card {
+  transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.record-card--pop {
+  transform: scale(1.5);
+}
+.record-card:active {
+  transform: scale(0.98);
+  transition: transform 0.1s;
+}
