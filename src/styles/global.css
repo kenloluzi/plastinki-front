@@ -1087,3 +1087,22 @@ button:hover,
 a:hover, button:hover, .link-button:hover {
   text-decoration: none !important;
 }
+/* Кнопка "Нет" в модалке – стеклянная, как все нейтральные кнопки */
+.modal-buttons .btn-secondary {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  color: #111 !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+  border-radius: 60px !important;
+  padding: 8px 24px !important;
+  font-size: 12px !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+}
+
+.modal-buttons .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.55) !important;
+  transform: translateY(-2px) !important;
+  color: #000 !important;
+}
