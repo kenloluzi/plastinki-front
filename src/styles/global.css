@@ -843,3 +843,85 @@ button.delete-order:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5) !important;
 }
+/* ===== ЕДИНЫЙ СТИЛЬ ДЛЯ ВСЕХ КНОПОК (как в шапке) ===== */
+/* Базовый стеклянный стиль для всех кнопок и ссылок-кнопок */
+.btn,
+.filters__reset,
+.admin__tabs button,
+.hero__cta,
+.link-button,
+.cart-item__controls button,
+.order-card__head button,
+.admin__table td button,
+.nav a,
+.nav button,
+.cart-link,
+a.btn,
+button.link-button {
+  background: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
+  border-radius: 30px !important;
+  padding: 8px 20px !important;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  color: #111 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Эффект при наведении для всех нейтральных кнопок */
+.btn:hover,
+.filters__reset:hover,
+.admin__tabs button:hover,
+.hero__cta:hover,
+.link-button:not(.delete-order):hover,
+.cart-item__controls button:hover,
+.order-card__head button:not(.delete-order):hover,
+.admin__table td button:not(.delete-order):hover,
+.nav a:hover,
+.nav button:hover,
+.cart-link:hover {
+  background: rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  color: #000 !important;
+  text-decoration: none;
+}
+
+/* Кнопки опасных действий (удалить, выход) – красные, стеклянные */
+.delete-order,
+.btn-danger,
+.admin__table td button.delete-order,
+.order-card__head button.delete-order {
+  background: rgba(220, 53, 69, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+.delete-order:hover,
+.btn-danger:hover,
+.admin__table td button.delete-order:hover,
+.order-card__head button.delete-order:hover {
+  background: rgba(220, 53, 69, 1) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5);
+}
+
+/* Специфическая кнопка "Изменить" в админке – нейтральная, без красного */
+.admin__table td button:first-of-type {
+  background: rgba(255, 255, 255, 0.3) !important;
+  color: #111 !important;
+}
+.admin__table td button:first-of-type:hover {
+  background: rgba(255, 255, 255, 0.6) !important;
+  color: #000 !important;
+}
