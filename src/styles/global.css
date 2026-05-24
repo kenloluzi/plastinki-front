@@ -988,3 +988,102 @@ button.link-button {
   transform: scale(0.98);
   transition: transform 0.1s;
 }
+/* ===== УНИВЕРСАЛЬНЫЙ СТИЛЬ ДЛЯ ВСЕХ КНОПОК (как у .hero__cta) ===== */
+button,
+.btn,
+.filters__reset,
+.admin__tabs button,
+.hero__cta,
+.link-button,
+.cart-item__controls button,
+.order-card__head button,
+.admin__table td button,
+.nav a,
+.nav button,
+.cart-link,
+a.btn,
+button.link-button,
+.auth-form button,
+.checkout__form button,
+.modal-buttons button,
+input[type="submit"],
+button[type="submit"],
+button[type="button"] {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-radius: 60px !important;
+  padding: 8px 24px !important;
+  font-size: 12px !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  color: #111 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+}
+
+button:hover,
+.btn:hover,
+.filters__reset:hover,
+.admin__tabs button:hover,
+.hero__cta:hover,
+.link-button:hover,
+.cart-item__controls button:hover,
+.order-card__head button:hover,
+.admin__table td button:hover,
+.nav a:hover,
+.nav button:hover,
+.cart-link:hover,
+.auth-form button:hover,
+.checkout__form button:hover,
+.modal-buttons button:hover {
+  background: rgba(255, 255, 255, 0.55) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+  color: #000 !important;
+}
+
+/* Опасные кнопки (удалить, выход) */
+.delete-order,
+.btn-danger,
+.admin__table td button.delete-order,
+.order-card__head button.delete-order,
+.modal-buttons .btn-danger {
+  background: rgba(220, 53, 69, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(220,53,69,0.3) !important;
+}
+
+.delete-order:hover,
+.btn-danger:hover,
+.admin__table td button.delete-order:hover,
+.order-card__head button.delete-order:hover,
+.modal-buttons .btn-danger:hover {
+  background: rgba(220, 53, 69, 1) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(220,53,69,0.5) !important;
+  color: white !important;
+}
+
+/* Кнопки "Нет" в модалке – серые */
+.modal-buttons .btn-secondary {
+  background: rgba(100, 100, 100, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: white !important;
+}
+.modal-buttons .btn-secondary:hover {
+  background: rgba(100, 100, 100, 0.8) !important;
+}
+
+/* Убираем подчёркивание */
+a:hover, button:hover, .link-button:hover {
+  text-decoration: none !important;
+}
