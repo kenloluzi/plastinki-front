@@ -580,3 +580,77 @@ label {
   border-color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 800;
 }
+
+/* ===== Единый стеклянный стиль для всех кнопок ===== */
+/* Базовые кнопки (нейтральные) */
+.btn,
+.filters__reset,
+.admin__tabs button,
+.hero__cta,
+.link-button,
+.cart-item__controls button,
+.order-card__head button,
+.admin__table td button {
+  background: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
+  border-radius: 30px !important;
+  padding: 8px 20px !important;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  color: #111;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn:hover,
+.filters__reset:hover,
+.admin__tabs button:hover,
+.hero__cta:hover,
+.link-button:hover,
+.cart-item__controls button:hover,
+.order-card__head button:hover,
+.admin__table td button:hover {
+  background: rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  color: #000;
+}
+
+/* Красные кнопки для опасных действий (удалить, выход, отмена) */
+.btn-danger,
+.delete-order,
+.modal-buttons .btn-danger {
+  background: rgba(220, 53, 69, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+.btn-danger:hover,
+.delete-order:hover,
+.modal-buttons .btn-danger:hover {
+  background: rgba(220, 53, 69, 1) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
+}
+
+/* Кнопки отмены (нейтральные серые) */
+.btn-secondary,
+.modal-buttons .btn-secondary {
+  background: rgba(100, 100, 100, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: #fff !important;
+}
+
+.btn-secondary:hover,
+.modal-buttons .btn-secondary:hover {
+  background: rgba(100, 100, 100, 0.8) !important;
+}
