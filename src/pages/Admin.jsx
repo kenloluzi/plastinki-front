@@ -242,6 +242,7 @@ export default function Admin() {
             <tbody>
               {records.map((r) => (
                 <tr key={r.id}>
+                  <td>{r.id}</td>
                   <td>
                     {r.image_url ? (
                       <img
@@ -265,7 +266,6 @@ export default function Admin() {
                       />
                     )}
                   </td>
-                  <td>{r.id}</td>
                   <td>{r.artist}</td>
                   <td>{r.title}</td>
                   <td>{r.year}</td>
