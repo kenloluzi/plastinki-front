@@ -519,475 +519,8 @@ label {
   .cart-link { width: 100%; text-align: right; margin-left: 0; }
 }
 
-/* Светлые, но выразительные кнопки с улучшенной тенью */
-.btn,
-.filters__reset,
-.admin__tabs button,
-.hero__cta {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255,255,255,0.8);
-  transition: all 0.25s ease;
-  color: #111;
-}
 
-.btn:hover,
-.filters__reset:hover,
-.admin__tabs button:hover,
-.hero__cta:hover {
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.9);
-  transform: translateY(-2px);
-  color: #000;
-}
-
-
-
-/* Стили для ссылок в шапке – в едином стеклянном стиле */
-.nav a,
-.nav button,
-.cart-link {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  border-radius: 30px !important;
-  padding: 6px 16px !important;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  color: #111;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.nav a:hover,
-.nav button:hover,
-.cart-link:hover {
-  background: rgba(255, 255, 255, 0.5) !important;
-  transform: translateY(-2px);
-  color: #000;
-}
-
-/* Активная ссылка (если хочешь выделять) */
-.nav a.active {
-  background: rgba(255, 255, 255, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.9) !important;
-  font-weight: 800;
-}
-
-/* ===== Единый стеклянный стиль для всех кнопок ===== */
-/* Базовые кнопки (нейтральные) */
-.btn,
-.filters__reset,
-.admin__tabs button,
-.hero__cta,
-.link-button,
-.cart-item__controls button,
-.order-card__head button,
-.admin__table td button {
-  background: rgba(255, 255, 255, 0.3) !important;
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.7) !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  color: #111;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-}
-
-.btn:hover,
-.filters__reset:hover,
-.admin__tabs button:hover,
-.hero__cta:hover,
-.link-button:hover,
-.cart-item__controls button:hover,
-.order-card__head button:hover,
-.admin__table td button:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  color: #000;
-}
-
-/* Красные кнопки для опасных действий (удалить, выход, отмена) */
-.btn-danger,
-.delete-order,
-.modal-buttons .btn-danger {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
-}
-
-.btn-danger:hover,
-.delete-order:hover,
-.modal-buttons .btn-danger:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
-}
-
-/* Кнопки отмены (нейтральные серые) */
-.btn-secondary,
-.modal-buttons .btn-secondary {
-  background: rgba(100, 100, 100, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-}
-
-.btn-secondary:hover,
-.modal-buttons .btn-secondary:hover {
-  background: rgba(100, 100, 100, 0.8) !important;
-}
-
-
-/* ===== ЕДИНЫЙ СТЕКЛЯННЫЙ СТИЛЬ ДЛЯ ВСЕХ КНОПОК ===== */
-button,
-.btn,
-.filters__reset,
-.admin__tabs button,
-.hero__cta,
-.link-button,
-.cart-item__controls button,
-.order-card__head button,
-.admin__table td button,
-.nav a,
-.nav button,
-.cart-link,
-a.btn,
-button.link-button {
-  background: rgba(255, 255, 255, 0.3) !important;
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.7) !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  color: #111 !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-}
-
-button:hover,
-.btn:hover,
-.filters__reset:hover,
-.admin__tabs button:hover,
-.hero__cta:hover,
-.link-button:hover,
-.cart-item__controls button:hover,
-.order-card__head button:hover,
-.admin__table td button:hover,
-.nav a:hover,
-.nav button:hover,
-.cart-link:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  color: #000 !important;
-}
-
-/* Красные кнопки опасных действий (удалить, выход) */
-button.delete-order,
-.delete-order,
-.btn-danger,
-.modal-buttons .btn-danger {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
-}
-
-button.delete-order:hover,
-.delete-order:hover,
-.btn-danger:hover,
-.modal-buttons .btn-danger:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
-}
-
-/* Кнопки отмены (серые) */
-.btn-secondary,
-.modal-buttons .btn-secondary {
-  background: rgba(100, 100, 100, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-}
-
-.btn-secondary:hover,
-.modal-buttons .btn-secondary:hover {
-  background: rgba(100, 100, 100, 0.8) !important;
-}
-
-/* Кнопка "Изменить" в таблице админки – нейтральная, без красного */
-.admin__table td button:first-of-type {
-  background: rgba(255, 255, 255, 0.3) !important;
-  color: #111 !important;
-}
-.admin__table td button:first-of-type:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  color: #000 !important;
-}
-/* Кнопка "Удалить" в таблице админки – красная */
-.admin__table td button.delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  color: #fff !important;
-}
-
-
-/* Убираем подчёркивание при наведении на любые кнопки и ссылки-кнопки */
-button:hover,
-.btn:hover,
-.link-button:hover,
-.delete-order:hover,
-.filters__reset:hover,
-.admin__tabs button:hover,
-.hero__cta:hover,
-.cart-link:hover,
-.nav a:hover,
-.nav button:hover {
-  text-decoration: none !important;
-}
-
-
-/* Красные кнопки удаления – эффект при наведении */
-.delete-order,
-.btn-danger {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
-  transition: all 0.2s ease;
-}
-
-.delete-order:hover,
-.btn-danger:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5);
-  cursor: pointer;
-}
-/* Единый стиль для всех кнопок удаления (везде) */
-.delete-order,
-.btn-danger,
-button.delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
-}
-
-.delete-order:hover,
-.btn-danger:hover,
-button.delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5);
-  text-decoration: none;
-}
-
-/* Единый стиль для всех красных кнопок удаления (и в пластинках, и в заказах) */
-.delete-order,
-.btn-danger,
-.admin__table td button.delete-order,
-.order-card__head button.delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  border-radius: 30px !important;
-  padding: 6px 16px !important;
-  font-size: 12px !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  font-weight: 600 !important;
-  transition: all 0.2s ease !important;
-  cursor: pointer !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3) !important;
-}
-
-.delete-order:hover,
-.btn-danger:hover,
-.admin__table td button.delete-order:hover,
-.order-card__head button.delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5) !important;
-}
-/* ===== ЕДИНЫЙ СТИЛЬ ДЛЯ ВСЕХ КНОПОК (как в шапке) ===== */
-/* Базовый стеклянный стиль для всех кнопок и ссылок-кнопок */
-.btn,
-.filters__reset,
-.admin__tabs button,
-.hero__cta,
-.link-button,
-.cart-item__controls button,
-.order-card__head button,
-.admin__table td button,
-.nav a,
-.nav button,
-.cart-link,
-a.btn,
-button.link-button {
-  background: rgba(255, 255, 255, 0.3) !important;
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.7) !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  color: #111 !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-}
-
-/* Эффект при наведении для всех нейтральных кнопок */
-.btn:hover,
-.filters__reset:hover,
-.admin__tabs button:hover,
-.hero__cta:hover,
-.link-button:not(.delete-order):hover,
-.cart-item__controls button:hover,
-.order-card__head button:not(.delete-order):hover,
-.admin__table td button:not(.delete-order):hover,
-.nav a:hover,
-.nav button:hover,
-.cart-link:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  color: #000 !important;
-  text-decoration: none;
-}
-
-/* Кнопки опасных действий (удалить, выход) – красные, стеклянные */
-.delete-order,
-.btn-danger,
-.admin__table td button.delete-order,
-.order-card__head button.delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
-}
-
-.delete-order:hover,
-.btn-danger:hover,
-.admin__table td button.delete-order:hover,
-.order-card__head button.delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5);
-}
-
-/* Специфическая кнопка "Изменить" в админке – нейтральная, без красного */
-.admin__table td button:first-of-type {
-  background: rgba(255, 255, 255, 0.3) !important;
-  color: #111 !important;
-}
-.admin__table td button:first-of-type:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  color: #000 !important;
-}
-/* Стили для кнопок в модальном окне подтверждения */
-.modal-buttons .btn-secondary {
-  background: rgba(255, 255, 255, 0.3) !important;
-  backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.7) !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #111 !important;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.modal-buttons .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  transform: translateY(-2px);
-  color: #000 !important;
-}
-
-.modal-buttons .btn-danger {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #fff !important;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(220,53,69,0.3);
-}
-
-.modal-buttons .btn-danger:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220,53,69,0.5);
-}
-/* Анимация приближения карточки при клике */
-.record-card {
-  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-
-.record-card--animate {
-  transform: scale(1.05) translateY(-4px);
-  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-.record-card {
-  transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-
-.record-card--pop {
-  transform: scale(1.5);
-}
-.record-card:active {
-  transform: scale(0.98);
-  transition: transform 0.1s;
-}
-/* ===== УНИВЕРСАЛЬНЫЙ СТИЛЬ ДЛЯ ВСЕХ КНОПОК (как у .hero__cta) ===== */
+/* ===== LIQUID GLASS: УНИВЕРСАЛЬНЫЙ СТИЛЬ ВСЕХ КНОПОК ===== */
 button,
 .btn,
 .filters__reset,
@@ -1013,7 +546,7 @@ button[type="button"] {
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
   border: 1px solid rgba(255, 255, 255, 0.8) !important;
   border-radius: 60px !important;
-  padding: 8px 24px !important;
+  padding: 6px 14px !important;
   font-size: 12px !important;
   letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
@@ -1021,7 +554,7 @@ button[type="button"] {
   transition: all 0.3s ease !important;
   cursor: pointer !important;
   color: #111 !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2) !important;
   text-decoration: none !important;
   display: inline-block !important;
   text-align: center !important;
@@ -1033,174 +566,62 @@ button:hover,
 .filters__reset:hover,
 .admin__tabs button:hover,
 .hero__cta:hover,
-.link-button:hover,
-.cart-item__controls button:hover,
-.order-card__head button:hover,
-.admin__table td button:hover,
+.link-button:not(.delete-order):hover,
+.cart-item__controls button:not(.delete-order):hover,
+.order-card__head button:not(.delete-order):hover,
+.admin__table td button:not(.delete-order):hover,
 .nav a:hover,
 .nav button:hover,
 .cart-link:hover,
 .auth-form button:hover,
 .checkout__form button:hover,
-.modal-buttons button:hover {
+.modal-buttons button:not(.btn-danger):hover {
   background: rgba(255, 255, 255, 0.55) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3) !important;
   color: #000 !important;
+  text-decoration: none !important;
 }
 
-/* Опасные кнопки (удалить, выход) */
+/* Ссылки в шапке — меньший letter-spacing */
+.nav a, .nav button, .cart-link {
+  letter-spacing: 0.05em !important;
+}
+.lang-switcher button {
+  letter-spacing: 0.05em !important;
+}
+
+/* Красные кнопки удаления */
 .delete-order,
 .btn-danger,
 .admin__table td button.delete-order,
 .order-card__head button.delete-order,
+.cart-item__controls .delete-order,
 .modal-buttons .btn-danger {
   background: rgba(220, 53, 69, 0.85) !important;
   border-color: rgba(255, 255, 255, 0.6) !important;
-  color: white !important;
-  box-shadow: 0 2px 8px rgba(220,53,69,0.3) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
 }
 
 .delete-order:hover,
 .btn-danger:hover,
 .admin__table td button.delete-order:hover,
 .order-card__head button.delete-order:hover,
+.cart-item__controls .delete-order:hover,
 .modal-buttons .btn-danger:hover {
   background: rgba(220, 53, 69, 1) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(220,53,69,0.5) !important;
-  color: white !important;
-}
-
-/* Кнопки "Нет" в модалке – серые */
-.modal-buttons .btn-secondary {
-  background: rgba(100, 100, 100, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: white !important;
-}
-.modal-buttons .btn-secondary:hover {
-  background: rgba(100, 100, 100, 0.8) !important;
-}
-
-/* Убираем подчёркивание */
-a:hover, button:hover, .link-button:hover {
-  text-decoration: none !important;
-}
-/* Кнопка "Нет" в модалке – стеклянная, как все нейтральные кнопки */
-.modal-buttons .btn-secondary {
-  background: rgba(255, 255, 255, 0.25) !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  color: #111 !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
-  border-radius: 60px !important;
-  padding: 8px 24px !important;
-  font-size: 12px !important;
-  letter-spacing: 0.2em !important;
-  text-transform: uppercase !important;
-  font-weight: 600 !important;
-}
-
-.modal-buttons .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.55) !important;
-  transform: translateY(-2px) !important;
-  color: #000 !important;
-}
-/* Универсальные кнопки – тень тёмная */
-button,
-.btn,
-.filters__reset,
-.admin__tabs button,
-.hero__cta,
-.link-button,
-.cart-item__controls button,
-.order-card__head button,
-.admin__table td button,
-.nav a,
-.nav button,
-.cart-link,
-.modal-buttons button {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2) !important;
-  padding: 6px 14px !important;
-}
-
-/* При наведении тень может усиливаться */
-button:hover,
-.btn:hover,
-.hero__cta:hover,
-.link-button:hover,
-.nav a:hover {
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Красные кнопки удаления – тёмная тень + лёгкий красный оттенок */
-.delete-order,
-.btn-danger {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
-}
-
-.delete-order:hover,
-.btn-danger:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45) !important;
-}
-/* Красные кнопки удаления */
-.delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3) !important;
-}
-
-.delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5) !important;
-  color: #fff !important;
-}
-.nav a,
-.nav button,
-.cart-link {
-  letter-spacing: 0.05em !important;  /* было 0.12em или 0.2em */
-}
-
-.lang-switcher button {
-  letter-spacing: 0.05em !important;  /* убери совсем или оставь минимум */
-}
-/* Принудительный красный цвет для кнопки удаления в корзине */
-.cart-item__controls .delete-order,
-.cart-item__controls button.delete-order,
-button.delete-order.cart-remove {
-  background: rgba(220, 53, 69, 0.9) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: white !important;
-  box-shadow: 0 2px 8px rgba(220,53,69,0.3) !important;
-}
-
-.cart-item__controls .delete-order:hover,
-.cart-item__controls button.delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px) !important;
-  color: white !important;
-}
-/* Стиль кнопки удаления в корзине – такой же, как в админке */
-.cart-item__controls .delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  border-radius: 30px !important;
-  padding: 4px 12px !important;
-  font-size: 11px !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  font-weight: 600 !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3) !important;
-  transition: all 0.2s ease !important;
-  cursor: pointer !important;
-}
-
-.cart-item__controls .delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5) !important;
   color: #fff !important;
   text-decoration: none !important;
+}
+
+/* Анимация карточки пластинки */
+.record-card {
+  transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+.record-card:active {
+  transform: scale(0.98);
+  transition: transform 0.1s;
 }
