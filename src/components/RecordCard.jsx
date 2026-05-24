@@ -1,29 +1,23 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function RecordCard({ record }) {
-  const navigate = useNavigate();
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    setIsAnimating(true);
-
-    setTimeout(() => {
-      setIsAnimating(false);  // снимаем класс, чтобы карточка вернулась в норму
-      setTimeout(() => {
-        navigate(`/records/${record.id}`);
-      }, 50); // небольшая задержка, чтобы визуально вернулась
-    }, 250); // длительность анимации увеличения
-  };
-
   return (
-    <Link
-      to={`/records/${record.id}`}
-      className={`record-card ${isAnimating ? "record-card--pop" : ""}`}
-      onClick={handleClick}
-    >
-      {/* ... содержимое карточки ... */}
+    <Link to={`/records/${record.id}`} className="record-card">
+      <div className="record-card__image">
+        {record.image_url ? (
+          <img src={record.image_url} alt={record.title} loading="lazy" />
+        ) : (
+          <div className="record-card__placeholder" />
+        )}
+      </div>
+      <div className="record-card__info">
+        <div className="record-card__artist">{record.artist}</div>
+        <div className="record-card__title">{record.title}</div>
+        <div className="record-card__meta">
+          <span>{record.year}</span>
+          <span>${record.price.toFixed(2)}</span>
+        </div>
+      </div>
     </Link>
   );
 }
