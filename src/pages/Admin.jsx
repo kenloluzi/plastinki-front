@@ -1,3 +1,4 @@
+// frontend/src/pages/Admin.jsx
 import { useEffect, useState } from "react";
 import { api } from "../api/client.js";
 import { useI18n } from "../i18n/I18nContext.jsx";
@@ -22,6 +23,7 @@ export default function Admin() {
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState(EMPTY);
   const [error, setError] = useState(null);
+  const [imagePreview, setImagePreview] = useState(""); // состояние для предпросмотра картинки
 
   useEffect(() => { loadRecords(); loadOrders(); }, []);
 
@@ -36,12 +38,14 @@ export default function Admin() {
   function startEdit(r) {
     setEditing(r.id);
     setForm({ ...r, year: r.year ?? "", description: r.description ?? "" });
+    setImagePreview(r.image_url || ""); // устанавливаем картинку для предпросмотра
   }
 
   function cancelEdit() {
     setEditing(null);
     setForm(EMPTY);
     setError(null);
+    setImagePreview(""); // очищаем предпросмотр
   }
 
   async function save(e) {
@@ -87,6 +91,13 @@ export default function Admin() {
     }
   }
 
+  // Обработчик изменения URL картинки, обновляет форму и предпросмотр
+  const handleImageUrlChange = (e) => {
+    const url = e.target.value;
+    setForm({ ...form, image_url: url });
+    setImagePreview(url);
+  };
+
   return (
     <div className="admin">
       <h1>{t("admin.title")}</h1>
@@ -103,6 +114,26 @@ export default function Admin() {
         <>
           <form className="admin__form" onSubmit={save}>
             <h2>{editing ? t("admin.formEdit", { id: editing }) : t("admin.formAdd")}</h2>
+            {/* Блок с изображением */}
+            <div className="admin__row">
+              <div style={{ flex: 1 }}>
+                <input
+                  placeholder={t("admin.fields.imageUrl")}
+                  value={form.image_url}
+                  onChange={handleImageUrlChange}
+                />
+              </div>
+              {imagePreview && (
+                <div style={{ flexShrink: 0 }}>
+                  <img
+                    src={imagePreview}
+                    alt="Preview"
+                    style={{ width: "80px", height: "80px", objectFit: "cover", borderRadius: "8px" }}
+                    onError={(e) => { e.target.style.display = 'none'; }} // скрыть, если картинка не загрузилась
+                  />
+                </div>
+              )}
+            </div>
             <div className="admin__row">
               <input placeholder={t("admin.fields.title")} required value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })} />
@@ -126,8 +157,6 @@ export default function Admin() {
               <input type="number" placeholder={t("admin.fields.stock")} value={form.stock}
                 onChange={(e) => setForm({ ...form, stock: e.target.value })} />
             </div>
-            <input placeholder={t("admin.fields.imageUrl")} value={form.image_url}
-              onChange={(e) => setForm({ ...form, image_url: e.target.value })} />
             <textarea placeholder={t("admin.fields.description")} value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })} />
             {error && <div className="form-error">{error}</div>}
