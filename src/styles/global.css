@@ -1166,3 +1166,19 @@ button:hover,
 .lang-switcher button {
   letter-spacing: 0.05em !important;  /* убери совсем или оставь минимум */
 }
+/* Принудительный красный цвет для кнопки удаления в корзине */
+.cart-item__controls .delete-order,
+.cart-item__controls button.delete-order,
+button.delete-order.cart-remove {
+  background: rgba(220, 53, 69, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(220,53,69,0.3) !important;
+}
+
+.cart-item__controls .delete-order:hover,
+.cart-item__controls button.delete-order:hover {
+  background: rgba(220, 53, 69, 1) !important;
+  transform: translateY(-2px) !important;
+  color: white !important;
+}
