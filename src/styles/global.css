@@ -1,3 +1,6 @@
+/* -------------------------------------------------------------------------- 
+   Базовые сбросы и переменные 
+   -------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -12,12 +15,14 @@
   --accent: #000000;
   --max-w: 1400px;
   --glass-bg: rgba(255, 255, 255, 0.3);
-  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.7);
   --glass-shadow: 0 4px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -1px 0 rgba(0,0,0,0.06);
   --glass-shadow-hover: 0 8px 32px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(0,0,0,0.06);
 }
 
-html { overflow-y: scroll; }
+html {
+  overflow-y: scroll;
+}
 
 body, #root {
   margin: 0;
@@ -30,11 +35,26 @@ body, #root {
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: inherit; text-decoration: none; }
-a:hover { text-decoration: underline; }
-button { font-family: inherit; }
-img { display: block; max-width: 100%; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
+button {
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* -------------------------------------------------------------------------- 
+   Формы и поля ввода 
+   -------------------------------------------------------------------------- */
 input, select, textarea {
   font-family: inherit;
   font-size: 14px;
@@ -47,7 +67,9 @@ input, select, textarea {
   border-radius: 12px;
 }
 
-input:focus, select:focus, textarea:focus { border-color: #000; }
+input:focus, select:focus, textarea:focus {
+  border-color: #000;
+}
 
 label {
   display: block;
@@ -58,7 +80,14 @@ label {
   color: var(--muted);
 }
 
-.app { display: flex; flex-direction: column; min-height: 100vh; }
+/* -------------------------------------------------------------------------- 
+   Основной контейнер и layout 
+   -------------------------------------------------------------------------- */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 .main {
   flex: 1;
@@ -68,9 +97,10 @@ label {
   padding: 32px 32px 64px;
 }
 
-/* Header */
+/* -------------------------------------------------------------------------- 
+   Шапка 
+   -------------------------------------------------------------------------- */
 .header {
-  
   background: #fff;
   z-index: 10;
   display: flex;
@@ -80,8 +110,14 @@ label {
   border-bottom: 1px solid var(--border);
 }
 
-.logo { font-weight: 700; letter-spacing: 0.2em; font-size: 16px; }
-.logo:hover { text-decoration: none; }
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  font-size: 16px;
+}
+.logo:hover {
+  text-decoration: none;
+}
 
 .nav {
   display: flex;
@@ -92,8 +128,13 @@ label {
   text-transform: uppercase;
 }
 
-.nav a.active { font-weight: 600; }
-.cart-link { font-weight: 600; }
+.nav a.active {
+  font-weight: 600;
+}
+
+.cart-link {
+  font-weight: 600;
+}
 
 .lang-switcher {
   display: inline-flex;
@@ -115,9 +156,16 @@ label {
   color: var(--muted);
 }
 
-.lang-switcher button.active { color: var(--fg); font-weight: 600; }
-.lang-switcher button:hover { color: var(--fg); }
-.lang-switcher__sep { color: var(--muted); }
+.lang-switcher button.active {
+  color: var(--fg);
+  font-weight: 600;
+}
+.lang-switcher button:hover {
+  color: var(--fg);
+}
+.lang-switcher__sep {
+  color: var(--muted);
+}
 
 .link-button {
   background: none;
@@ -129,9 +177,13 @@ label {
   padding: 0;
   color: inherit;
 }
-.link-button:hover { text-decoration: underline; }
+.link-button:hover {
+  text-decoration: underline;
+}
 
-/* Footer */
+/* -------------------------------------------------------------------------- 
+   Подвал 
+   -------------------------------------------------------------------------- */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -144,10 +196,17 @@ label {
   color: var(--muted);
 }
 
-.footer__legal { display: flex; gap: 12px; }
-.footer__legal .sep { color: var(--muted); }
+.footer__legal {
+  display: flex;
+  gap: 12px;
+}
+.footer__legal .sep {
+  color: var(--muted);
+}
 
-/* Hero */
+/* -------------------------------------------------------------------------- 
+   Главная страница (Hero) 
+   -------------------------------------------------------------------------- */
 .hero {
   padding: 28px 0 36px;
   text-align: center;
@@ -163,71 +222,130 @@ label {
   margin: 0 0 8px;
 }
 
-/* Liquid Glass Buttons */
+/* -------------------------------------------------------------------------- 
+   Единый стеклянный стиль для всех кнопок и ссылок-кнопок 
+   -------------------------------------------------------------------------- */
+button,
 .btn,
 .filters__reset,
 .admin__tabs button,
-.hero__cta {
-  display: inline-block;
-  padding: 14px 28px;
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-  color: #111;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 30px;
-  backdrop-filter: blur(14px) saturate(180%);
-  -webkit-backdrop-filter: blur(14px) saturate(180%);
-  box-shadow: var(--glass-shadow);
-  transition: all 0.3s ease;
-  text-decoration: none;
+.hero__cta,
+.link-button,
+.cart-item__controls button,
+.order-card__head button,
+.admin__table td button,
+.nav a,
+.nav button,
+.cart-link,
+a.btn,
+.auth-form button,
+.checkout__form button,
+.modal-buttons button {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 30px !important;
+  padding: 8px 20px !important;
+  font-size: 12px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  color: #111 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
 }
 
+button:hover,
 .btn:hover,
 .filters__reset:hover,
 .admin__tabs button:hover,
-.hero__cta:hover {
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: var(--glass-shadow-hover);
-  transform: translateY(-2px);
-  text-decoration: none;
-  color: #000;
+.hero__cta:hover,
+.link-button:not(.delete-order):hover,
+.cart-item__controls button:hover,
+.order-card__head button:not(.delete-order):hover,
+.admin__table td button:not(.delete-order):hover,
+.nav a:hover,
+.nav button:hover,
+.cart-link:hover,
+.auth-form button:hover,
+.checkout__form button:hover,
+.modal-buttons button:not(.btn-danger):hover {
+  background: rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1) !important;
+  color: #000 !important;
+  text-decoration: none !important;
 }
 
-.btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-.btn--block { display: block; width: 100%; }
-.btn--small { padding: 8px 16px; }
-
-.hero__cta { padding: 14px 36px; }
-.filters__reset { width: 100%; }
-
-.admin__tabs button.active {
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  border-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.15);
+/* Кнопки опасных действий (удалить, выход, "Да" в модалке) */
+.delete-order,
+.btn-danger,
+.admin__table td button.delete-order,
+.order-card__head button.delete-order,
+.modal-buttons .btn-danger {
+  background: rgba(220, 53, 69, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(220,53,69,0.3) !important;
 }
 
-.admin__tabs button.active:hover {
-  background: rgba(0, 0, 0, 0.85);
-  color: #fff;
-  transform: translateY(-1px);
+.delete-order:hover,
+.btn-danger:hover,
+.admin__table td button.delete-order:hover,
+.order-card__head button.delete-order:hover,
+.modal-buttons .btn-danger:hover {
+  background: rgba(220, 53, 69, 1) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(220,53,69,0.5) !important;
+  color: #fff !important;
 }
 
-/* Grid */
+/* Кнопка "Нет" в модалке – нейтральная, как обычные кнопки */
+.modal-buttons .btn-secondary {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: #111 !important;
+}
+
+.modal-buttons .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.6) !important;
+  color: #000 !important;
+}
+
+/* Специальные стили для кнопок в админке: "Изменить" не должна быть красной */
+.admin__table td button:first-of-type {
+  background: rgba(255, 255, 255, 0.3) !important;
+  color: #111 !important;
+}
+.admin__table td button:first-of-type:hover {
+  background: rgba(255, 255, 255, 0.6) !important;
+  color: #000 !important;
+}
+
+/* -------------------------------------------------------------------------- 
+   Сетка и карточки пластинок 
+   -------------------------------------------------------------------------- */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 32px;
 }
 
-/* Record card */
-.record-card { display: block; color: inherit; border-radius: 12px; }
-.record-card:hover { text-decoration: none; }
+.record-card {
+  display: block;
+  color: inherit;
+  border-radius: 12px;
+}
+.record-card:hover {
+  text-decoration: none;
+}
 
 .record-card__image {
   width: 100%;
@@ -245,7 +363,9 @@ label {
   transition: transform 0.3s ease;
 }
 
-.record-card:hover .record-card__image img { transform: scale(1.03); }
+.record-card:hover .record-card__image img {
+  transform: scale(1.03);
+}
 
 .record-card__placeholder {
   width: 100%;
@@ -257,16 +377,54 @@ label {
   background-size: 70% 70%;
 }
 
-.record-card__artist { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
-.record-card__title { font-size: 14px; font-weight: 500; margin: 2px 0 8px; }
-.record-card__meta { display: flex; justify-content: space-between; font-size: 12px; color: #000; }
+.record-card__artist {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
-/* Catalog */
-.catalog { display: grid; grid-template-columns: 240px 1fr; gap: 48px; }
+.record-card__title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 2px 0 8px;
+}
 
-.filters { position: sticky; top: 80px; align-self: start; padding-right: 8px; }
-.filters__group { margin-bottom: 20px; }
-.filters__row { display: flex; gap: 8px; }
+.record-card__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #000;
+}
+
+/* -------------------------------------------------------------------------- 
+   Каталог (фильтры, сетка) 
+   -------------------------------------------------------------------------- */
+.catalog {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+}
+
+.filters {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+  padding-right: 8px;
+}
+
+.filters__group {
+  margin-bottom: 20px;
+}
+
+.filters__row {
+  display: flex;
+  gap: 8px;
+}
+
+.filters__reset {
+  width: 100%;
+}
 
 .catalog__header {
   display: flex;
@@ -275,31 +433,86 @@ label {
   margin-bottom: 24px;
 }
 
-.catalog__header h2 { margin: 0; font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; }
-
-/* Record detail */
-.record-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-
-.record-detail__image { aspect-ratio: 1/1; background: #f6f6f6; overflow: hidden; border-radius: 12px; }
-.record-detail__image img { width: 100%; height: 100%; object-fit: cover; }
-
-.record-detail__stock { font-size: 14px; margin-bottom: 16px; color: var(--muted); }
-.record-detail__artist { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-.record-detail__title { font-size: 36px; font-weight: 700; margin: 8px 0 20px; line-height: 1.1; }
-.record-detail__meta { display: flex; gap: 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; }
-.record-detail__price { font-size: 24px; font-weight: 500; margin-bottom: 24px; }
-.record-detail__desc { color: #333; margin: 0 0 32px; max-width: 480px; }
-
-/* Page titles */
-.cart h1, .checkout h1, .account h1, .admin h1, .auth-page h1 {
-  font-size: 28px;
-  letter-spacing: 0.05em;
+.catalog__header h2 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin: 0 0 32px;
 }
 
-/* Cart */
-.cart-list { list-style: none; margin: 0 0 24px; padding: 0; border-top: 1px solid var(--border); }
+/* -------------------------------------------------------------------------- 
+   Детальная страница пластинки 
+   -------------------------------------------------------------------------- */
+.record-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.record-detail__image {
+  aspect-ratio: 1/1;
+  background: #f6f6f6;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.record-detail__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.record-detail__stock {
+  font-size: 14px;
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+
+.record-detail__artist {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.record-detail__title {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 8px 0 20px;
+  line-height: 1.1;
+}
+
+.record-detail__meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.record-detail__price {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.record-detail__desc {
+  color: #333;
+  margin: 0 0 32px;
+  max-width: 480px;
+}
+
+/* -------------------------------------------------------------------------- 
+   Корзина 
+   -------------------------------------------------------------------------- */
+.cart-list {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
 
 .cart-item {
   display: grid;
@@ -310,14 +523,49 @@ label {
   border-bottom: 1px solid var(--border);
 }
 
-.cart-item__image { width: 80px; height: 80px; background: #f6f6f6; overflow: hidden; border-radius: 8px; }
-.cart-item__image img { width: 100%; height: 100%; object-fit: cover; }
-.cart-item__artist { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
-.cart-item__title { font-weight: 500; margin: 2px 0; }
-.cart-item__price { font-size: 13px; }
-.cart-item__controls { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
-.cart-item__controls input { width: 80px; }
-.cart-item__line { text-align: right; font-weight: 500; }
+.cart-item__image {
+  width: 80px;
+  height: 80px;
+  background: #f6f6f6;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.cart-item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-item__artist {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cart-item__title {
+  font-weight: 500;
+  margin: 2px 0;
+}
+
+.cart-item__price {
+  font-size: 13px;
+}
+
+.cart-item__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+.cart-item__controls input {
+  width: 80px;
+}
+
+.cart-item__line {
+  text-align: right;
+  font-weight: 500;
+}
 
 .cart-total {
   display: flex;
@@ -329,26 +577,92 @@ label {
   margin-bottom: 32px;
 }
 
-/* Checkout */
-.checkout__grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
-.checkout__form, .auth-form { display: flex; flex-direction: column; gap: 16px; }
-.checkout__row { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
-.checkout__form h2, .checkout__summary h2 { font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; margin: 0; }
+/* -------------------------------------------------------------------------- 
+   Оформление заказа 
+   -------------------------------------------------------------------------- */
+.checkout__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
 
-.checkout__summary { border: 1px solid var(--border); padding: 24px; border-radius: 12px; }
-.checkout__summary ul { list-style: none; padding: 0; margin: 16px 0; }
-.checkout__summary li { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-.checkout__total { display: flex; justify-content: space-between; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding-top: 16px; }
+.checkout__form, .auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-.form-error { background: #fff5f5; border: 1px solid #ffcccc; color: #c00; padding: 10px; font-size: 13px; border-radius: 8px; }
+.checkout__row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
 
-/* Auth */
-.auth-page { max-width: 380px; margin: 32px auto; }
+.checkout__summary {
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 12px;
+}
+.checkout__summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+.checkout__summary li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.checkout__total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding-top: 16px;
+}
 
-/* Account / Orders */
-.account__info { margin-bottom: 32px; font-size: 13px; }
-.order-list { list-style: none; padding: 0; margin: 0; }
-.order-card { border: 1px solid var(--border); padding: 20px; margin-bottom: 16px; border-radius: 12px; }
+.form-error {
+  background: #fff5f5;
+  border: 1px solid #ffcccc;
+  color: #c00;
+  padding: 10px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+/* -------------------------------------------------------------------------- 
+   Авторизация и регистрация 
+   -------------------------------------------------------------------------- */
+.auth-page {
+  max-width: 380px;
+  margin: 32px auto;
+}
+
+/* -------------------------------------------------------------------------- 
+   Личный кабинет и заказы 
+   -------------------------------------------------------------------------- */
+.account__info {
+  margin-bottom: 32px;
+  font-size: 13px;
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-card {
+  border: 1px solid var(--border);
+  padding: 20px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
 
 .order-card__head {
   display: flex;
@@ -360,18 +674,50 @@ label {
   margin-bottom: 12px;
 }
 
-.order-card__status { background: #000; color: #fff; padding: 2px 10px; font-size: 10px; border-radius: 20px; }
-.order-card__items { list-style: none; padding: 0; margin: 0 0 12px; font-size: 13px; }
-.order-card__items li { padding: 4px 0; }
-.order-card__total { font-weight: 600; text-align: right; }
-.notice { background: #f0f8f0; border: 1px solid #cce6cc; padding: 12px; margin-bottom: 24px; font-size: 13px; border-radius: 8px; }
+.order-card__status {
+  background: #000;
+  color: #fff;
+  padding: 2px 10px;
+  font-size: 10px;
+  border-radius: 20px;
+}
 
-.delete-order { color: #c00; margin-left: 12px; }
-.delete-order:hover { text-decoration: underline; }
+.order-card__items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  font-size: 13px;
+}
+.order-card__items li {
+  padding: 4px 0;
+}
 
-/* Admin */
-.admin__tabs { display: flex; gap: 8px; margin-bottom: 24px; }
-.admin__tabs button { padding: 10px 20px; font-size: 11px; }
+.order-card__total {
+  font-weight: 600;
+  text-align: right;
+}
+
+.notice {
+  background: #f0f8f0;
+  border: 1px solid #cce6cc;
+  padding: 12px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+/* -------------------------------------------------------------------------- 
+   Админ-панель 
+   -------------------------------------------------------------------------- */
+.admin__tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.admin__tabs button {
+  padding: 10px 20px;
+  font-size: 11px;
+}
 
 .admin__form {
   border: 1px solid var(--border);
@@ -382,26 +728,53 @@ label {
   gap: 12px;
   border-radius: 12px;
 }
+.admin__form h2 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.admin__row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+.admin__actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
 
-.admin__form h2 { margin: 0 0 8px; font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; }
-.admin__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
-.admin__actions { display: flex; gap: 16px; align-items: center; }
+.admin__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.admin__table th,
+.admin__table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.admin__table th {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.admin__table td button {
+  margin-right: 12px;
+}
 
-.admin__table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.admin__table th, .admin__table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
-.admin__table th { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-.admin__table td button { margin-right: 12px; }
-
-/* Utility */
-.muted { color: var(--muted); }
-.small { font-size: 11px; }
-.loading, .empty { padding: 40px 0; text-align: center; color: var(--muted); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; }
-
-/* Modal */
+/* -------------------------------------------------------------------------- 
+   Модальные окна 
+   -------------------------------------------------------------------------- */
 .modal-overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
@@ -418,34 +791,110 @@ label {
   width: 90%;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
-
-.modal-content p { margin: 0 0 20px; font-size: 16px; }
-.modal-buttons { display: flex; gap: 12px; justify-content: center; }
-
-/* Legal */
-.legal-page { max-width: 800px; margin: 0 auto; padding: 32px 20px; }
-.legal-page h1 { font-size: 28px; margin-bottom: 32px; text-transform: uppercase; letter-spacing: 0.05em; }
-.legal-page h2 { font-size: 20px; margin-top: 32px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-.legal-page p, .legal-page ul { margin-bottom: 16px; line-height: 1.6; }
-.legal-page ul { padding-left: 24px; }
-.legal-page li { margin-bottom: 6px; }
-
-/* Responsive 900px */
-@media (max-width: 900px) {
-  .catalog, .record-detail, .checkout__grid { grid-template-columns: 1fr; gap: 28px; }
-  .filters { position: static; padding-right: 0; }
-  .nav { gap: 16px; }
-  .grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 22px; }
-  .hero { padding: 22px 0 28px; margin-bottom: 18px; }
-  .record-detail__title { font-size: 28px; }
+.modal-content p {
+  margin: 0 0 20px;
+  font-size: 16px;
+}
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
 }
 
-/* Responsive 600px */
-@media (max-width: 600px) {
-  .header { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
-  .logo { font-size: 14px; }
-  .main { padding: 16px 16px 32px; }
+/* -------------------------------------------------------------------------- 
+   Юридические страницы 
+   -------------------------------------------------------------------------- */
+.legal-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+.legal-page h1 {
+  font-size: 28px;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.legal-page h2 {
+  font-size: 20px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+.legal-page p,
+.legal-page ul {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.legal-page ul {
+  padding-left: 24px;
+}
+.legal-page li {
+  margin-bottom: 6px;
+}
 
+/* -------------------------------------------------------------------------- 
+   Утилиты 
+   -------------------------------------------------------------------------- */
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 11px;
+}
+.loading,
+.empty {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* -------------------------------------------------------------------------- 
+   Адаптивность (медиа-запросы) 
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .catalog,
+  .record-detail,
+  .checkout__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .filters {
+    position: static;
+    padding-right: 0;
+  }
+  .nav {
+    gap: 16px;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 22px;
+  }
+  .hero {
+    padding: 22px 0 28px;
+    margin-bottom: 18px;
+  }
+  .record-detail__title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .logo {
+    font-size: 14px;
+  }
+  .main {
+    padding: 16px 16px 32px;
+  }
   .nav {
     width: 100%;
     font-size: 10px;
@@ -456,22 +905,51 @@ label {
     border-top: 1px solid var(--border);
     padding-top: 10px;
   }
-
-  .cart-link { margin-left: auto; }
-  .lang-switcher { margin-left: 0; padding-left: 0; border-left: none; gap: 4px; }
-
-  .hero { padding: 14px 0 20px; margin-bottom: 14px; }
-  .hero__title { font-size: clamp(28px, 9vw, 44px); margin-bottom: 6px; }
-  .hero__cta { padding: 10px 22px; font-size: 11px; }
-
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .record-card__artist { font-size: 10px; }
-  .record-card__title { font-size: 13px; }
-  .record-card__meta { font-size: 11px; }
-
-  .cart h1, .checkout h1, .account h1, .admin h1, .auth-page h1 { font-size: 22px; margin-bottom: 20px; }
-  .catalog__header h2 { font-size: 16px; }
-
+  .cart-link {
+    margin-left: auto;
+  }
+  .lang-switcher {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    gap: 4px;
+  }
+  .hero {
+    padding: 14px 0 20px;
+    margin-bottom: 14px;
+  }
+  .hero__title {
+    font-size: clamp(28px, 9vw, 44px);
+    margin-bottom: 6px;
+  }
+  .hero__cta {
+    padding: 10px 22px;
+    font-size: 11px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .record-card__artist {
+    font-size: 10px;
+  }
+  .record-card__title {
+    font-size: 13px;
+  }
+  .record-card__meta {
+    font-size: 11px;
+  }
+  .cart h1,
+  .checkout h1,
+  .account h1,
+  .admin h1,
+  .auth-page h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .catalog__header h2 {
+    font-size: 16px;
+  }
   .filters {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -480,727 +958,115 @@ label {
     padding-bottom: 16px;
     margin-bottom: 8px;
   }
-  .filters__group { margin-bottom: 0; }
-  .filters__group:first-child, .filters__reset { grid-column: 1 / -1; }
-
-  .record-detail { gap: 28px; }
-  .record-detail__title { font-size: 24px; margin: 6px 0 14px; }
-  .record-detail__meta { font-size: 11px; gap: 12px; margin-bottom: 20px; }
-  .record-detail__price { font-size: 20px; margin-bottom: 16px; }
-
-  .cart-item { grid-template-columns: 60px 1fr; grid-template-rows: auto auto; column-gap: 14px; row-gap: 10px; padding: 16px 0; }
-  .cart-item__image { width: 60px; height: 60px; }
-  .cart-item__controls { grid-column: 1/-1; flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; }
-  .cart-item__controls input { width: 72px; }
-  .cart-item__line { grid-column: 1/-1; text-align: right; font-weight: 600; border-top: 1px dashed var(--border); padding-top: 8px; }
-
-  .checkout__row { grid-template-columns: 1fr; }
-  .checkout__summary { padding: 16px; }
-  .auth-page { margin: 16px auto; }
-
-  .footer { flex-direction: column; gap: 6px; text-align: center; padding: 16px; font-size: 10px; }
-  .footer__legal { justify-content: center; }
-
-  .order-card { padding: 16px; }
-  .order-card__head { flex-wrap: wrap; gap: 8px; font-size: 11px; }
-
-  .admin__tabs button { padding: 8px 14px; font-size: 10px; }
-  .admin__form { padding: 16px; }
-  .admin__row { grid-template-columns: 1fr; gap: 10px; }
-  .admin__table-wrap, .admin__table { overflow-x: auto; display: block; white-space: nowrap; font-size: 12px; }
-
-  /* Prevent iOS zoom */
-  input, select, textarea { font-size: 16px; }
+  .filters__group {
+    margin-bottom: 0;
+  }
+  .filters__group:first-child,
+  .filters__reset {
+    grid-column: 1 / -1;
+  }
+  .record-detail {
+    gap: 28px;
+  }
+  .record-detail__title {
+    font-size: 24px;
+    margin: 6px 0 14px;
+  }
+  .record-detail__meta {
+    font-size: 11px;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .record-detail__price {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .cart-item {
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 14px;
+    row-gap: 10px;
+    padding: 16px 0;
+  }
+  .cart-item__image {
+    width: 60px;
+    height: 60px;
+  }
+  .cart-item__controls {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .cart-item__controls input {
+    width: 72px;
+  }
+  .cart-item__line {
+    grid-column: 1 / -1;
+    text-align: right;
+    font-weight: 600;
+    border-top: 1px dashed var(--border);
+    padding-top: 8px;
+  }
+  .checkout__row {
+    grid-template-columns: 1fr;
+  }
+  .checkout__summary {
+    padding: 16px;
+  }
+  .auth-page {
+    margin: 16px auto;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+    padding: 16px;
+    font-size: 10px;
+  }
+  .footer__legal {
+    justify-content: center;
+  }
+  .order-card {
+    padding: 16px;
+  }
+  .order-card__head {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 11px;
+  }
+  .admin__tabs button {
+    padding: 8px 14px;
+    font-size: 10px;
+  }
+  .admin__form {
+    padding: 16px;
+  }
+  .admin__row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .admin__table-wrap,
+  .admin__table {
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  input, select, textarea {
+    font-size: 16px;
+  }
 }
 
-/* Tiny phones */
 @media (max-width: 360px) {
-  .nav { font-size: 10px; gap: 10px; }
-  .cart-link { width: 100%; text-align: right; margin-left: 0; }
-}
-
-/* Светлые, но выразительные кнопки с улучшенной тенью */
-.btn,
-.filters__reset,
-.admin__tabs button,
-.hero__cta {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255,255,255,0.8);
-  transition: all 0.25s ease;
-  color: #111;
-}
-
-.btn:hover,
-.filters__reset:hover,
-.admin__tabs button:hover,
-.hero__cta:hover {
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.9);
-  transform: translateY(-2px);
-  color: #000;
-}
-
-
-
-/* Стили для ссылок в шапке – в едином стеклянном стиле */
-.nav a,
-.nav button,
-.cart-link {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  border-radius: 30px !important;
-  padding: 6px 16px !important;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  color: #111;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.nav a:hover,
-.nav button:hover,
-.cart-link:hover {
-  background: rgba(255, 255, 255, 0.5) !important;
-  transform: translateY(-2px);
-  color: #000;
-}
-
-/* Активная ссылка (если хочешь выделять) */
-.nav a.active {
-  background: rgba(255, 255, 255, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.9) !important;
-  font-weight: 800;
-}
-
-/* ===== Единый стеклянный стиль для всех кнопок ===== */
-/* Базовые кнопки (нейтральные) */
-.btn,
-.filters__reset,
-.admin__tabs button,
-.hero__cta,
-.link-button,
-.cart-item__controls button,
-.order-card__head button,
-.admin__table td button {
-  background: rgba(255, 255, 255, 0.3) !important;
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.7) !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  color: #111;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-}
-
-.btn:hover,
-.filters__reset:hover,
-.admin__tabs button:hover,
-.hero__cta:hover,
-.link-button:hover,
-.cart-item__controls button:hover,
-.order-card__head button:hover,
-.admin__table td button:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  color: #000;
-}
-
-/* Красные кнопки для опасных действий (удалить, выход, отмена) */
-.btn-danger,
-.delete-order,
-.modal-buttons .btn-danger {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
-}
-
-.btn-danger:hover,
-.delete-order:hover,
-.modal-buttons .btn-danger:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
-}
-
-/* Кнопки отмены (нейтральные серые) */
-.btn-secondary,
-.modal-buttons .btn-secondary {
-  background: rgba(100, 100, 100, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-}
-
-.btn-secondary:hover,
-.modal-buttons .btn-secondary:hover {
-  background: rgba(100, 100, 100, 0.8) !important;
-}
-
-
-/* ===== ЕДИНЫЙ СТЕКЛЯННЫЙ СТИЛЬ ДЛЯ ВСЕХ КНОПОК ===== */
-button,
-.btn,
-.filters__reset,
-.admin__tabs button,
-.hero__cta,
-.link-button,
-.cart-item__controls button,
-.order-card__head button,
-.admin__table td button,
-.nav a,
-.nav button,
-.cart-link,
-a.btn,
-button.link-button {
-  background: rgba(255, 255, 255, 0.3) !important;
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.7) !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  color: #111 !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-}
-
-button:hover,
-.btn:hover,
-.filters__reset:hover,
-.admin__tabs button:hover,
-.hero__cta:hover,
-.link-button:hover,
-.cart-item__controls button:hover,
-.order-card__head button:hover,
-.admin__table td button:hover,
-.nav a:hover,
-.nav button:hover,
-.cart-link:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  color: #000 !important;
-}
-
-/* Красные кнопки опасных действий (удалить, выход) */
-button.delete-order,
-.delete-order,
-.btn-danger,
-.modal-buttons .btn-danger {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
-}
-
-button.delete-order:hover,
-.delete-order:hover,
-.btn-danger:hover,
-.modal-buttons .btn-danger:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
-}
-
-/* Кнопки отмены (серые) */
-.btn-secondary,
-.modal-buttons .btn-secondary {
-  background: rgba(100, 100, 100, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-}
-
-.btn-secondary:hover,
-.modal-buttons .btn-secondary:hover {
-  background: rgba(100, 100, 100, 0.8) !important;
-}
-
-/* Кнопка "Изменить" в таблице админки – нейтральная, без красного */
-.admin__table td button:first-of-type {
-  background: rgba(255, 255, 255, 0.3) !important;
-  color: #111 !important;
-}
-.admin__table td button:first-of-type:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  color: #000 !important;
-}
-/* Кнопка "Удалить" в таблице админки – красная */
-.admin__table td button.delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  color: #fff !important;
-}
-
-
-/* Убираем подчёркивание при наведении на любые кнопки и ссылки-кнопки */
-button:hover,
-.btn:hover,
-.link-button:hover,
-.delete-order:hover,
-.filters__reset:hover,
-.admin__tabs button:hover,
-.hero__cta:hover,
-.cart-link:hover,
-.nav a:hover,
-.nav button:hover {
-  text-decoration: none !important;
-}
-
-
-/* Красные кнопки удаления – эффект при наведении */
-.delete-order,
-.btn-danger {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
-  transition: all 0.2s ease;
-}
-
-.delete-order:hover,
-.btn-danger:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5);
-  cursor: pointer;
-}
-/* Единый стиль для всех кнопок удаления (везде) */
-.delete-order,
-.btn-danger,
-button.delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
-}
-
-.delete-order:hover,
-.btn-danger:hover,
-button.delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5);
-  text-decoration: none;
-}
-
-/* Единый стиль для всех красных кнопок удаления (и в пластинках, и в заказах) */
-.delete-order,
-.btn-danger,
-.admin__table td button.delete-order,
-.order-card__head button.delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  border-radius: 30px !important;
-  padding: 6px 16px !important;
-  font-size: 12px !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  font-weight: 600 !important;
-  transition: all 0.2s ease !important;
-  cursor: pointer !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3) !important;
-}
-
-.delete-order:hover,
-.btn-danger:hover,
-.admin__table td button.delete-order:hover,
-.order-card__head button.delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5) !important;
-}
-/* ===== ЕДИНЫЙ СТИЛЬ ДЛЯ ВСЕХ КНОПОК (как в шапке) ===== */
-/* Базовый стеклянный стиль для всех кнопок и ссылок-кнопок */
-.btn,
-.filters__reset,
-.admin__tabs button,
-.hero__cta,
-.link-button,
-.cart-item__controls button,
-.order-card__head button,
-.admin__table td button,
-.nav a,
-.nav button,
-.cart-link,
-a.btn,
-button.link-button {
-  background: rgba(255, 255, 255, 0.3) !important;
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.7) !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  color: #111 !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-}
-
-/* Эффект при наведении для всех нейтральных кнопок */
-.btn:hover,
-.filters__reset:hover,
-.admin__tabs button:hover,
-.hero__cta:hover,
-.link-button:not(.delete-order):hover,
-.cart-item__controls button:hover,
-.order-card__head button:not(.delete-order):hover,
-.admin__table td button:not(.delete-order):hover,
-.nav a:hover,
-.nav button:hover,
-.cart-link:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  color: #000 !important;
-  text-decoration: none;
-}
-
-/* Кнопки опасных действий (удалить, выход) – красные, стеклянные */
-.delete-order,
-.btn-danger,
-.admin__table td button.delete-order,
-.order-card__head button.delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
-}
-
-.delete-order:hover,
-.btn-danger:hover,
-.admin__table td button.delete-order:hover,
-.order-card__head button.delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5);
-}
-
-/* Специфическая кнопка "Изменить" в админке – нейтральная, без красного */
-.admin__table td button:first-of-type {
-  background: rgba(255, 255, 255, 0.3) !important;
-  color: #111 !important;
-}
-.admin__table td button:first-of-type:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  color: #000 !important;
-}
-/* Стили для кнопок в модальном окне подтверждения */
-.modal-buttons .btn-secondary {
-  background: rgba(255, 255, 255, 0.3) !important;
-  backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.7) !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #111 !important;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.modal-buttons .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  transform: translateY(-2px);
-  color: #000 !important;
-}
-
-.modal-buttons .btn-danger {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  border-radius: 30px !important;
-  padding: 8px 20px !important;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #fff !important;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(220,53,69,0.3);
-}
-
-.modal-buttons .btn-danger:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220,53,69,0.5);
-}
-/* Анимация приближения карточки при клике */
-.record-card {
-  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-
-.record-card--animate {
-  transform: scale(1.05) translateY(-4px);
-  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-.record-card {
-  transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-
-.record-card--pop {
-  transform: scale(1.5);
-}
-.record-card:active {
-  transform: scale(0.98);
-  transition: transform 0.1s;
-}
-/* ===== УНИВЕРСАЛЬНЫЙ СТИЛЬ ДЛЯ ВСЕХ КНОПОК (как у .hero__cta) ===== */
-button,
-.btn,
-.filters__reset,
-.admin__tabs button,
-.hero__cta,
-.link-button,
-.cart-item__controls button,
-.order-card__head button,
-.admin__table td button,
-.nav a,
-.nav button,
-.cart-link,
-a.btn,
-button.link-button,
-.auth-form button,
-.checkout__form button,
-.modal-buttons button,
-input[type="submit"],
-button[type="submit"],
-button[type="button"] {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  border-radius: 60px !important;
-  padding: 8px 24px !important;
-  font-size: 12px !important;
-  letter-spacing: 0.2em !important;
-  text-transform: uppercase !important;
-  font-weight: 600 !important;
-  transition: all 0.3s ease !important;
-  cursor: pointer !important;
-  color: #111 !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
-  text-decoration: none !important;
-  display: inline-block !important;
-  text-align: center !important;
-  line-height: 1.2 !important;
-}
-
-button:hover,
-.btn:hover,
-.filters__reset:hover,
-.admin__tabs button:hover,
-.hero__cta:hover,
-.link-button:hover,
-.cart-item__controls button:hover,
-.order-card__head button:hover,
-.admin__table td button:hover,
-.nav a:hover,
-.nav button:hover,
-.cart-link:hover,
-.auth-form button:hover,
-.checkout__form button:hover,
-.modal-buttons button:hover {
-  background: rgba(255, 255, 255, 0.55) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
-  color: #000 !important;
-}
-
-/* Опасные кнопки (удалить, выход) */
-.delete-order,
-.btn-danger,
-.admin__table td button.delete-order,
-.order-card__head button.delete-order,
-.modal-buttons .btn-danger {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: white !important;
-  box-shadow: 0 2px 8px rgba(220,53,69,0.3) !important;
-}
-
-.delete-order:hover,
-.btn-danger:hover,
-.admin__table td button.delete-order:hover,
-.order-card__head button.delete-order:hover,
-.modal-buttons .btn-danger:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(220,53,69,0.5) !important;
-  color: white !important;
-}
-
-/* Кнопки "Нет" в модалке – серые */
-.modal-buttons .btn-secondary {
-  background: rgba(100, 100, 100, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: white !important;
-}
-.modal-buttons .btn-secondary:hover {
-  background: rgba(100, 100, 100, 0.8) !important;
-}
-
-/* Убираем подчёркивание */
-a:hover, button:hover, .link-button:hover {
-  text-decoration: none !important;
-}
-/* Кнопка "Нет" в модалке – стеклянная, как все нейтральные кнопки */
-.modal-buttons .btn-secondary {
-  background: rgba(255, 255, 255, 0.25) !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  color: #111 !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
-  border-radius: 60px !important;
-  padding: 8px 24px !important;
-  font-size: 12px !important;
-  letter-spacing: 0.2em !important;
-  text-transform: uppercase !important;
-  font-weight: 600 !important;
-}
-
-.modal-buttons .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.55) !important;
-  transform: translateY(-2px) !important;
-  color: #000 !important;
-}
-/* Универсальные кнопки – тень тёмная */
-button,
-.btn,
-.filters__reset,
-.admin__tabs button,
-.hero__cta,
-.link-button,
-.cart-item__controls button,
-.order-card__head button,
-.admin__table td button,
-.nav a,
-.nav button,
-.cart-link,
-.modal-buttons button {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2) !important;
-  padding: 6px 14px !important;
-}
-
-/* При наведении тень может усиливаться */
-button:hover,
-.btn:hover,
-.hero__cta:hover,
-.link-button:hover,
-.nav a:hover {
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Красные кнопки удаления – тёмная тень + лёгкий красный оттенок */
-.delete-order,
-.btn-danger {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
-}
-
-.delete-order:hover,
-.btn-danger:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45) !important;
-}
-/* Красные кнопки удаления */
-.delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3) !important;
-}
-
-.delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5) !important;
-  color: #fff !important;
-}
-.nav a,
-.nav button,
-.cart-link {
-  letter-spacing: 0.05em !important;  /* было 0.12em или 0.2em */
-}
-
-.lang-switcher button {
-  letter-spacing: 0.05em !important;  /* убери совсем или оставь минимум */
-}
-/* Принудительный красный цвет для кнопки удаления в корзине */
-.cart-item__controls .delete-order,
-.cart-item__controls button.delete-order,
-button.delete-order.cart-remove {
-  background: rgba(220, 53, 69, 0.9) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  color: white !important;
-  box-shadow: 0 2px 8px rgba(220,53,69,0.3) !important;
-}
-
-.cart-item__controls .delete-order:hover,
-.cart-item__controls button.delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px) !important;
-  color: white !important;
-}
-/* Стиль кнопки удаления в корзине – такой же, как в админке */
-.cart-item__controls .delete-order {
-  background: rgba(220, 53, 69, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  border-radius: 30px !important;
-  padding: 4px 12px !important;
-  font-size: 11px !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  font-weight: 600 !important;
-  color: #fff !important;
-  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3) !important;
-  transition: all 0.2s ease !important;
-  cursor: pointer !important;
-}
-
-.cart-item__controls .delete-order:hover {
-  background: rgba(220, 53, 69, 1) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.5) !important;
-  color: #fff !important;
-  text-decoration: none !important;
+  .nav {
+    font-size: 10px;
+    gap: 10px;
+  }
+  .cart-link {
+    width: 100%;
+    text-align: right;
+    margin-left: 0;
+  }
 }
