@@ -147,6 +147,7 @@ export const translations = {
         condition: "Сост.",
         price: "Цена",
         stock: "На складе",
+        image: "Обложка",
       },
       orderStatus: {
         pending: "новый",
@@ -310,6 +311,7 @@ export const translations = {
         condition: "Cond.",
         price: "Price",
         stock: "Stock",
+        image: "Cover", 
       },
       orderStatus: {
         pending: "pending",

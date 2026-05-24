@@ -1,4 +1,3 @@
-// frontend/src/pages/Admin.jsx
 import { useEffect, useState } from "react";
 import { api } from "../api/client.js";
 import { useI18n } from "../i18n/I18nContext.jsx";
@@ -23,29 +22,36 @@ export default function Admin() {
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState(EMPTY);
   const [error, setError] = useState(null);
-  const [imagePreview, setImagePreview] = useState(""); // состояние для предпросмотра картинки
+  const [imagePreview, setImagePreview] = useState("");
 
-  useEffect(() => { loadRecords(); loadOrders(); }, []);
+  useEffect(() => {
+    loadRecords();
+    loadOrders();
+  }, []);
 
   function loadRecords() {
-    api.get("/admin/records").then((res) => setRecords(res.items)).catch(() => {});
+    api.get("/admin/records")
+      .then((res) => setRecords(res.items))
+      .catch(() => {});
   }
 
   function loadOrders() {
-    api.get("/admin/orders").then((res) => setOrders(res.items)).catch(() => {});
+    api.get("/admin/orders")
+      .then((res) => setOrders(res.items))
+      .catch(() => {});
   }
 
   function startEdit(r) {
     setEditing(r.id);
     setForm({ ...r, year: r.year ?? "", description: r.description ?? "" });
-    setImagePreview(r.image_url || ""); // устанавливаем картинку для предпросмотра
+    setImagePreview(r.image_url || "");
   }
 
   function cancelEdit() {
     setEditing(null);
     setForm(EMPTY);
     setError(null);
-    setImagePreview(""); // очищаем предпросмотр
+    setImagePreview("");
   }
 
   async function save(e) {
@@ -91,7 +97,6 @@ export default function Admin() {
     }
   }
 
-  // Обработчик изменения URL картинки, обновляет форму и предпросмотр
   const handleImageUrlChange = (e) => {
     const url = e.target.value;
     setForm({ ...form, image_url: url });
@@ -102,10 +107,16 @@ export default function Admin() {
     <div className="admin">
       <h1>{t("admin.title")}</h1>
       <div className="admin__tabs">
-        <button className={tab === "records" ? "active" : ""} onClick={() => setTab("records")}>
+        <button
+          className={tab === "records" ? "active" : ""}
+          onClick={() => setTab("records")}
+        >
           {t("admin.tabs.records")}
         </button>
-        <button className={tab === "orders" ? "active" : ""} onClick={() => setTab("orders")}>
+        <button
+          className={tab === "orders" ? "active" : ""}
+          onClick={() => setTab("orders")}
+        >
           {t("admin.tabs.orders")}
         </button>
       </div>
@@ -113,8 +124,11 @@ export default function Admin() {
       {tab === "records" && (
         <>
           <form className="admin__form" onSubmit={save}>
-            <h2>{editing ? t("admin.formEdit", { id: editing }) : t("admin.formAdd")}</h2>
-            {/* Блок с изображением */}
+            <h2>
+              {editing
+                ? t("admin.formEdit", { id: editing })
+                : t("admin.formAdd")}
+            </h2>
             <div className="admin__row">
               <div style={{ flex: 1 }}>
                 <input
@@ -128,47 +142,92 @@ export default function Admin() {
                   <img
                     src={imagePreview}
                     alt="Preview"
-                    style={{ width: "80px", height: "80px", objectFit: "cover", borderRadius: "8px" }}
-                    onError={(e) => { e.target.style.display = 'none'; }} // скрыть, если картинка не загрузилась
+                    style={{ width: "60px", height: "60px", objectFit: "cover", borderRadius: "6px" }}
+                    onError={(e) => (e.target.style.display = "none")}
                   />
                 </div>
               )}
             </div>
             <div className="admin__row">
-              <input placeholder={t("admin.fields.title")} required value={form.title}
-                onChange={(e) => setForm({ ...form, title: e.target.value })} />
-              <input placeholder={t("admin.fields.artist")} required value={form.artist}
-                onChange={(e) => setForm({ ...form, artist: e.target.value })} />
+              <input
+                placeholder={t("admin.fields.title")}
+                required
+                value={form.title}
+                onChange={(e) => setForm({ ...form, title: e.target.value })}
+              />
+              <input
+                placeholder={t("admin.fields.artist")}
+                required
+                value={form.artist}
+                onChange={(e) => setForm({ ...form, artist: e.target.value })}
+              />
             </div>
             <div className="admin__row">
-              <input type="number" placeholder={t("admin.fields.year")} value={form.year}
-                onChange={(e) => setForm({ ...form, year: e.target.value })} />
-              <input placeholder={t("admin.fields.genre")} value={form.genre}
-                onChange={(e) => setForm({ ...form, genre: e.target.value })} />
-              <select value={form.condition}
-                onChange={(e) => setForm({ ...form, condition: e.target.value })}>
+              <input
+                type="number"
+                placeholder={t("admin.fields.year")}
+                value={form.year}
+                onChange={(e) => setForm({ ...form, year: e.target.value })}
+              />
+              <input
+                placeholder={t("admin.fields.genre")}
+                value={form.genre}
+                onChange={(e) => setForm({ ...form, genre: e.target.value })}
+              />
+              <select
+                value={form.condition}
+                onChange={(e) =>
+                  setForm({ ...form, condition: e.target.value })
+                }
+              >
                 <option value="new">{t("admin.conditionNew")}</option>
                 <option value="used">{t("admin.conditionUsed")}</option>
               </select>
             </div>
             <div className="admin__row">
-              <input type="number" step="0.01" placeholder={t("admin.fields.price")} required value={form.price}
-                onChange={(e) => setForm({ ...form, price: e.target.value })} />
-              <input type="number" placeholder={t("admin.fields.stock")} value={form.stock}
-                onChange={(e) => setForm({ ...form, stock: e.target.value })} />
+              <input
+                type="number"
+                step="0.01"
+                placeholder={t("admin.fields.price")}
+                required
+                value={form.price}
+                onChange={(e) => setForm({ ...form, price: e.target.value })}
+              />
+              <input
+                type="number"
+                placeholder={t("admin.fields.stock")}
+                value={form.stock}
+                onChange={(e) => setForm({ ...form, stock: e.target.value })}
+              />
             </div>
-            <textarea placeholder={t("admin.fields.description")} value={form.description}
-              onChange={(e) => setForm({ ...form, description: e.target.value })} />
+            <textarea
+              placeholder={t("admin.fields.description")}
+              value={form.description}
+              onChange={(e) =>
+                setForm({ ...form, description: e.target.value })
+              }
+            />
             {error && <div className="form-error">{error}</div>}
             <div className="admin__actions">
-              <button className="btn" type="submit">{editing ? t("admin.save") : t("admin.add")}</button>
-              {editing && <button type="button" className="link-button" onClick={cancelEdit}>{t("admin.cancel")}</button>}
+              <button className="btn" type="submit">
+                {editing ? t("admin.save") : t("admin.add")}
+              </button>
+              {editing && (
+                <button
+                  type="button"
+                  className="link-button"
+                  onClick={cancelEdit}
+                >
+                  {t("admin.cancel")}
+                </button>
+              )}
             </div>
           </form>
 
           <table className="admin__table">
             <thead>
               <tr>
+                <th>{t("admin.table.image")}</th>
                 <th>{t("admin.table.id")}</th>
                 <th>{t("admin.table.artist")}</th>
                 <th>{t("admin.table.title")}</th>
@@ -183,6 +242,29 @@ export default function Admin() {
             <tbody>
               {records.map((r) => (
                 <tr key={r.id}>
+                  <td>
+                    {r.image_url ? (
+                      <img
+                        src={r.image_url}
+                        alt={r.title}
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          objectFit: "cover",
+                          borderRadius: "4px",
+                        }}
+                      />
+                    ) : (
+                      <div
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          background: "#eee",
+                          borderRadius: "4px",
+                        }}
+                      />
+                    )}
+                  </td>
                   <td>{r.id}</td>
                   <td>{r.artist}</td>
                   <td>{r.title}</td>
@@ -192,8 +274,12 @@ export default function Admin() {
                   <td>${r.price.toFixed(2)}</td>
                   <td>{r.stock}</td>
                   <td>
-                    <button className="link-button" onClick={() => startEdit(r)}>{t("admin.edit")}</button>
-                    <button className="link-button" onClick={() => remove(r.id)}>{t("admin.delete")}</button>
+                    <button className="link-button" onClick={() => startEdit(r)}>
+                      {t("admin.edit")}
+                    </button>
+                    <button className="link-button" onClick={() => remove(r.id)}>
+                      {t("admin.delete")}
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -209,7 +295,10 @@ export default function Admin() {
               <div className="order-card__head">
                 <span>{t("account.order", { id: o.id })}</span>
                 <span>{new Date(o.created_at).toLocaleString(locale)}</span>
-                <select value={o.status} onChange={(e) => setStatus(o.id, e.target.value)}>
+                <select
+                  value={o.status}
+                  onChange={(e) => setStatus(o.id, e.target.value)}
+                >
                   <option value="pending">{t("admin.orderStatus.pending")}</option>
                   <option value="paid">{t("admin.orderStatus.paid")}</option>
                   <option value="shipped">{t("admin.orderStatus.shipped")}</option>
@@ -226,11 +315,14 @@ export default function Admin() {
               <ul className="order-card__items">
                 {o.items.map((i) => (
                   <li key={i.id}>
-                    {i.artist} — {i.title} × {i.quantity} · ${(i.price * i.quantity).toFixed(2)}
+                    {i.artist} — {i.title} × {i.quantity} · $
+                    {(i.price * i.quantity).toFixed(2)}
                   </li>
                 ))}
               </ul>
-              <div className="order-card__total">{t("admin.orderTotal")}: ${o.total.toFixed(2)}</div>
+              <div className="order-card__total">
+                {t("admin.orderTotal")}: ${o.total.toFixed(2)}
+              </div>
             </li>
           ))}
         </ul>
