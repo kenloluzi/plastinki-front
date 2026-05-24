@@ -35,13 +35,20 @@ export default function Cart() {
                 type="number"
                 min="1"
                 value={i.quantity}
-                onChange={(e) => setQuantity(i.record_id, parseInt(e.target.value, 10) || 1)}
+                onChange={(e) =>
+                  setQuantity(i.record_id, parseInt(e.target.value, 10) || 1)
+                }
               />
-              <button className="link-button delete-order" onClick={() => remove(i.record_id)}>
+              <button
+                className="link-button delete-order"
+                onClick={() => remove(i.record_id)}
+              >
                 {t("cart.remove")}
               </button>
             </div>
-            <div className="cart-item__line">${(Number(i.price) * i.quantity).toFixed(2)}</div>
+            <div className="cart-item__line">
+              ${(Number(i.price) * i.quantity).toFixed(2)}
+            </div>
           </li>
         ))}
       </ul>
@@ -49,7 +56,9 @@ export default function Cart() {
         <span>{t("cart.total")}</span>
         <span>${total.toFixed(2)}</span>
       </div>
-      <Link to="/checkout" className="btn btn--block">{t("cart.checkout")}</Link>
+      <Link to="/checkout" className="btn btn--block">
+        {t("cart.checkout")}
+      </Link>
     </div>
   );
 }
