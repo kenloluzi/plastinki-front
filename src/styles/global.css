@@ -1106,3 +1106,39 @@ a:hover, button:hover, .link-button:hover {
   transform: translateY(-2px) !important;
   color: #000 !important;
 }
+/* Универсальные кнопки – тень тёмная */
+button,
+.btn,
+.filters__reset,
+.admin__tabs button,
+.hero__cta,
+.link-button,
+.cart-item__controls button,
+.order-card__head button,
+.admin__table td button,
+.nav a,
+.nav button,
+.cart-link,
+.modal-buttons button {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* При наведении тень может усиливаться */
+button:hover,
+.btn:hover,
+.hero__cta:hover,
+.link-button:hover,
+.nav a:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Красные кнопки удаления – тёмная тень + лёгкий красный оттенок */
+.delete-order,
+.btn-danger {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+}
+
+.delete-order:hover,
+.btn-danger:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45) !important;
+}
