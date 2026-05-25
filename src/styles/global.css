@@ -85,7 +85,7 @@ label {
 
 .nav {
   display: flex;
-  gap: 28px;
+  gap: 20px;
   align-items: center;
   font-size: 12px;
   letter-spacing: 0.12em;
