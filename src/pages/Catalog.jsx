@@ -1,71 +1,156 @@
-import { useState, useEffect, useCallback } from "react";
-import { api } from "../api/client";
-import RecordCard from "../components/RecordCard";
-import { useI18n } from "../i18n/I18nContext";
+import { useEffect, useState } from "react";
+import { api } from "../api/client.js";
+import RecordCard from "../components/RecordCard.jsx";
+import { useI18n } from "../i18n/I18nContext.jsx";
 
 export default function Catalog() {
-  const { t } = useI18n();
   const [records, setRecords] = useState([]);
+  const [facets, setFacets] = useState({ genres: [], artists: [], years: [] });
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-  const [search, setSearch] = useState("");
-  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const { t } = useI18n();
+  const [filters, setFilters] = useState({
+    genre: "",
+    artist: "",
+    year_min: "",
+    year_max: "",
+    price_min: "",
+    price_max: "",
+    search: "",
+    sort: "newest",
+  });
 
-  // Debounce search
   useEffect(() => {
-    const timer = setTimeout(() => setDebouncedSearch(search), 400);
-    return () => clearTimeout(timer);
-  }, [search]);
+    api.get("/records/facets").then(setFacets).catch(() => {});
+  }, []);
 
-  const fetchRecords = useCallback(async () => {
+  useEffect(() => {
     setLoading(true);
-    try {
-      const params = { page, limit: 12, search: debouncedSearch };
-      const data = await api.get("/records", { params });
-      setRecords(data.items || []);
-      setTotalPages(Math.ceil((data.count || 0) / 12));
-    } catch (e) {
-      console.error(e);
-    } finally {
-      setLoading(false);
-    }
-  }, [page, debouncedSearch]);
+    const params = new URLSearchParams();
+    Object.entries(filters).forEach(([k, v]) => {
+      if (v !== "" && v !== null) params.append(k, v);
+    });
+    api.get(`/records?${params.toString()}`)
+      .then((res) => setRecords(res.items))
+      .catch(() => setRecords([]))
+      .finally(() => setLoading(false));
+  }, [filters]);
 
-  useEffect(() => {
-    fetchRecords();
-  }, [fetchRecords]);
+  function update(field, value) {
+    setFilters((prev) => ({ ...prev, [field]: value }));
+  }
+
+  function reset() {
+    setFilters({
+      genre: "",
+      artist: "",
+      year_min: "",
+      year_max: "",
+      price_min: "",
+      price_max: "",
+      search: "",
+      sort: "newest",
+    });
+  }
 
   return (
-    <div>
-      <div className="catalog__header">
-        <h2>{t("catalog.title")}</h2>
-        <input
-          type="text"
-          placeholder="Поиск по названию или артисту..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          style={{ padding: "10px", width: "300px", borderRadius: "12px" }}
-        />
-      </div>
+    <div className="catalog">
+      <aside className="filters">
+        <div className="filters__group">
+          <label>{t("catalog.search")}</label>
+          <input
+            type="text"
+            value={filters.search}
+            onChange={(e) => update("search", e.target.value)}
+            placeholder={t("catalog.searchPlaceholder")}
+          />
+        </div>
 
-      <div className="grid">
-        {records.map(record => <RecordCard key={record.id} record={record} />)}
-      </div>
+        <div className="filters__group">
+          <label>{t("catalog.genre")}</label>
+          <select value={filters.genre} onChange={(e) => update("genre", e.target.value)}>
+            <option value="">{t("catalog.allGenres")}</option>
+            {facets.genres.map((g) => (
+              <option key={g} value={g}>{g}</option>
+            ))}
+          </select>
+        </div>
 
-      {/* Пагинация */}
-      <div style={{ textAlign: "center", margin: "40px 0" }}>
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
-          <button
-            key={p}
-            onClick={() => setPage(p)}
-            className={`btn ${p === page ? "active" : ""}`}
-            style={{ margin: "0 5px" }}
-          >
-            {p}
-          </button>
-        ))}
-      </div>
+        <div className="filters__group">
+          <label>{t("catalog.artist")}</label>
+          <select value={filters.artist} onChange={(e) => update("artist", e.target.value)}>
+            <option value="">{t("catalog.allArtists")}</option>
+            {facets.artists.map((a) => (
+              <option key={a} value={a}>{a}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="filters__group">
+          <label>{t("catalog.year")}</label>
+          <div className="filters__row">
+            <input
+              type="number"
+              placeholder={t("catalog.from")}
+              value={filters.year_min}
+              onChange={(e) => update("year_min", e.target.value)}
+            />
+            <input
+              type="number"
+              placeholder={t("catalog.to")}
+              value={filters.year_max}
+              onChange={(e) => update("year_max", e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="filters__group">
+          <label>{t("catalog.price")}</label>
+          <div className="filters__row">
+            <input
+              type="number"
+              placeholder={t("catalog.min")}
+              value={filters.price_min}
+              onChange={(e) => update("price_min", e.target.value)}
+            />
+            <input
+              type="number"
+              placeholder={t("catalog.max")}
+              value={filters.price_max}
+              onChange={(e) => update("price_max", e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="filters__group">
+          <label>{t("catalog.sort")}</label>
+          <select value={filters.sort} onChange={(e) => update("sort", e.target.value)}>
+            <option value="newest">{t("catalog.sortNewest")}</option>
+            <option value="price_asc">{t("catalog.sortPriceAsc")}</option>
+            <option value="price_desc">{t("catalog.sortPriceDesc")}</option>
+            <option value="year_desc">{t("catalog.sortYearDesc")}</option>
+          </select>
+        </div>
+
+        <button className="filters__reset" onClick={reset}>{t("catalog.reset")}</button>
+      </aside>
+
+      <section className="catalog__results">
+        <div className="catalog__header">
+          <h2>{t("catalog.title")}</h2>
+          <span className="muted">{t("catalog.count", { n: records.length })}</span>
+        </div>
+        {loading ? (
+          <div className="loading">{t("common.loading")}</div>
+        ) : records.length === 0 ? (
+          <div className="empty">{t("catalog.empty")}</div>
+        ) : (
+          <div className="grid">
+            {records.map((r) => (
+              <RecordCard key={r.id} record={r} />
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 }
