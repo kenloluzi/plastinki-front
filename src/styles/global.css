@@ -625,3 +625,15 @@ button:hover,
   transform: scale(0.98);
   transition: transform 0.1s;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+.pagination__info {
+  font-size: 14px;
+  color: var(--muted);
+}
